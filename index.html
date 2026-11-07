@@ -428,21 +428,49 @@
 
         <!-- ==================== VIEW 3: PROFILE & ADMIN (حسابي ولوحة الأدمن) ==================== -->
         <div id="view-profile" class="view-section">
-            <!-- بطاقة تعريف المستخدم -->
-            <section class="luxury-card rounded-3xl p-6 mb-4 text-center relative overflow-hidden">
+            <!-- بطاقة الحساب الشخصي للمستخدم (تسمح لكل زائر بإنشاء حسابه وتسمية نفسه مع وسيلة اتصال اختيارية) -->
+            <section class="luxury-card rounded-3xl p-5 mb-4 text-center relative overflow-hidden">
                 <div class="absolute -top-10 -right-10 w-32 h-32 bg-gold/15 rounded-full blur-2xl"></div>
-                <div class="relative inline-block mb-3">
+                <div class="relative inline-block mb-2">
                     <div class="w-20 h-20 rounded-full border-4 border-surface-container-highest bg-deep-charcoal flex items-center justify-center mx-auto shadow-lg text-gold">
-                        <span class="material-symbols-outlined text-[42px]">school</span>
+                        <span class="material-symbols-outlined text-[40px]">person</span>
                     </div>
-                    <div class="absolute bottom-0 left-0 bg-emerald-600 w-7 h-7 rounded-full border-2 border-white flex items-center justify-center text-white shadow-md">
-                        <span class="material-symbols-outlined text-[15px]">verified</span>
-                    </div>
+                    <button onclick="toggleEditProfileForm()" title="تعديل بيانات حسابي" class="absolute bottom-0 left-0 bg-gold text-deep-charcoal w-7 h-7 rounded-full border-2 border-white flex items-center justify-center shadow-md">
+                        <span class="material-symbols-outlined text-[15px]">edit</span>
+                    </button>
                 </div>
-                <h2 class="text-xl text-on-background mb-1 font-extrabold">أهلاً بك في مجتمع صلخد</h2>
-                <p class="text-xs text-on-surface-variant leading-relaxed px-2">
-                    مدرس رياضيات (عاشر وحادي عشر) | طالب هندسة معلوماتية في الجامعة الافتراضية السورية (SVU)
+                <h2 id="profile-display-name" class="text-xl text-on-background mb-0.5 font-extrabold">زائر من صلخد</h2>
+                <p id="profile-display-bio" class="text-xs text-on-surface-variant leading-relaxed px-2">
+                    اضغط على "إعداد / تعديل حسابي" لتكتب اسمك وتستقبل الرسائل والردود على إعلاناتك
                 </p>
+                <p id="profile-display-contact" class="text-[11px] text-tertiary font-bold mt-1"></p>
+
+                <div class="mt-3">
+                    <button onclick="toggleEditProfileForm()" class="bg-deep-charcoal text-gold px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center gap-1.5 shadow-sm">
+                        <span class="material-symbols-outlined text-[16px]">manage_accounts</span>
+                        <span>إعداد / تعديل حسابي الشخصي</span>
+                    </button>
+                </div>
+
+                <!-- نموذج إنشاء أو تعديل حساب المستخدم الشخصي (الاسم إلزامي، طريقة الاتصال غير إلزامية) -->
+                <form id="user-profile-form" onsubmit="saveUserProfile(event)" class="hidden mt-4 pt-4 border-t border-slate-200 text-right space-y-2.5">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">الاسم أو اللقب في التطبيق (إلزامي)</label>
+                        <input id="prof-name-input" required type="text" placeholder="مثال: مناف / أبو كريم / صيدلية الجبل" class="w-full rounded-xl border-slate-300 text-xs py-2"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">نبذة أو صفة مختصرة (اختياري)</label>
+                        <input id="prof-bio-input" type="text" placeholder="مثال: مدرس رياضيات / طالب هندسة معلوماتية / صاحب ورشة" class="w-full rounded-xl border-slate-300 text-xs py-2"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">طريقة اتصال: رقم هاتف أو واتساب أو تيليجرام (غير إلزامي)</label>
+                        <input id="prof-contact-input" type="text" placeholder="اختياري — اتركه فارغاً إذا تفضل التواصل عبر رسائل التطبيق فقط" class="w-full rounded-xl border-slate-300 text-xs py-2"/>
+                    </div>
+                    <div class="flex gap-2 pt-1">
+                        <button type="submit" class="flex-1 bg-emerald-700 text-white py-2.5 rounded-xl text-xs font-bold">حفظ الحساب</button>
+                        <button type="button" onclick="toggleEditProfileForm()" class="px-4 bg-slate-100 text-slate-600 py-2.5 rounded-xl text-xs font-bold">إغلاق</button>
+                    </div>
+                </form>
 
                 <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-100">
                     <div class="bg-surface-container-low p-2.5 rounded-2xl">
@@ -458,6 +486,20 @@
                         <span class="text-[11px] text-slate-500">مساهماتي</span>
                     </div>
                 </div>
+            </section>
+
+            <!-- صندوق الرسائل الواردة والمرسلة للحساب (يرتبط بالسحابة ليتمكن الأهالي والإدارة من مراسلة بعضهم داخل التطبيق) -->
+            <section class="luxury-card rounded-3xl p-5 mb-4 border border-gold/40">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-bold text-sm text-deep-charcoal flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-tertiary text-[20px]">mail</span>
+                        صندوق رسائل حسابي (<span id="my-messages-count">0</span>)
+                    </h3>
+                    <button onclick="openDirectMessageModal('', 'إدارة التطبيق')" class="text-xs bg-amber-100 text-amber-900 px-3 py-1 rounded-xl font-bold hover:bg-amber-200">
+                        ✉️ راسل الإدارة أو مستخدماً
+                    </button>
+                </div>
+                <div id="user-messages-list" class="space-y-2.5 max-h-64 overflow-y-auto"></div>
             </section>
 
             <!-- مساهمات المستخدم الشخصية وحالتها -->
@@ -490,13 +532,23 @@
                     <button onclick="logoutAdmin()" class="text-xs bg-red-50 text-error px-3 py-1.5 rounded-xl font-bold hover:bg-red-100">خروج</button>
                 </div>
 
+                <!-- شريط حالة الربط السحابي (Cloud Sync Status) داخل لوحة الأدمن -->
+                <div class="mb-3 px-3.5 py-2.5 rounded-2xl bg-surface-container-low border border-slate-200 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span id="cloud-status-dot" class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                        <span id="cloud-status-label" class="text-[11px] font-bold text-deep-charcoal">الوضع الحالي: تخزين محلي (بانتظار ربط Firebase السحابي)</span>
+                    </div>
+                    <button onclick="switchAdminSubTab('cloud')" class="text-[11px] text-tertiary font-extrabold hover:underline">إعداد السحابة ☁️</button>
+                </div>
+
                 <!-- تبويبات لوحة الأدمن الشاملة -->
-                <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 mb-4">
-                    <button onclick="switchAdminSubTab('pending')" id="admin-tab-pending" class="py-2 px-2 rounded-xl text-[11px] font-bold bg-deep-charcoal text-gold">الطلبات (<span id="admin-pending-num">0</span>)</button>
-                    <button onclick="switchAdminSubTab('transport')" id="admin-tab-transport" class="py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">🚕 المواصلات والنبض</button>
-                    <button onclick="switchAdminSubTab('emergency')" id="admin-tab-emergency" class="py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">🚨 أرقام الطوارئ</button>
-                    <button onclick="switchAdminSubTab('approved')" id="admin-tab-approved" class="py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">المنشورة</button>
-                    <button onclick="switchAdminSubTab('broadcast')" id="admin-tab-broadcast" class="col-span-2 sm:col-span-1 py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">🔔 بث إشعار</button>
+                <div class="grid grid-cols-3 sm:grid-cols-6 gap-1.5 mb-4">
+                    <button onclick="switchAdminSubTab('pending')" id="admin-tab-pending" class="py-2 px-1.5 rounded-xl text-[11px] font-bold bg-deep-charcoal text-gold">الطلبات (<span id="admin-pending-num">0</span>)</button>
+                    <button onclick="switchAdminSubTab('transport')" id="admin-tab-transport" class="py-2 px-1.5 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">🚕 المواصلات والنبض</button>
+                    <button onclick="switchAdminSubTab('emergency')" id="admin-tab-emergency" class="py-2 px-1.5 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">🚨 أرقام الطوارئ</button>
+                    <button onclick="switchAdminSubTab('approved')" id="admin-tab-approved" class="py-2 px-1.5 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">المنشورة</button>
+                    <button onclick="switchAdminSubTab('broadcast')" id="admin-tab-broadcast" class="py-2 px-1.5 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">🔔 بث إشعار</button>
+                    <button onclick="switchAdminSubTab('cloud')" id="admin-tab-cloud" class="py-2 px-1.5 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">☁️ السحابة</button>
                 </div>
 
                 <!-- 1. قائمة الطلبات المعلقة للمراجعة -->
@@ -586,6 +638,32 @@
                         <textarea id="broadcast-body" rows="2" placeholder="اكتب تفاصيل الإشعار ليظهر لجميع المستخدمين مع إشعار للهاتف..." class="w-full rounded-xl border-slate-200 text-xs"></textarea>
                     </div>
                     <button onclick="sendAdminBroadcast()" class="w-full bg-deep-charcoal text-gold py-2.5 rounded-xl text-xs font-bold">نشر التنبيه وإرسال إشعار للأجهزة فوراً</button>
+                </div>
+
+                <!-- 6. إعدادات الربط السحابي المباشر (Firebase Realtime Database) -->
+                <div id="admin-cloud-container" class="hidden space-y-3">
+                    <div class="bg-sky-50/80 border border-sky-200 rounded-2xl p-3.5 space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-extrabold text-xs text-deep-charcoal flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sky-700 text-[18px]">cloud_sync</span>
+                                الربط السحابي الفوري (Firebase Realtime DB)
+                            </h4>
+                            <span class="text-[10px] bg-sky-100 text-sky-900 px-2 py-0.5 rounded-full font-bold">مزامنة حية لكل الهواتف</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-relaxed">
+                            الصق رابط قاعدة بيانات Firebase المجانية الخاصة بك هنا (أو ضعه مرة واحدة داخل متغير <code class="bg-white px-1 rounded">CLOUD_DB_URL</code> في الكود قبل رفعه على GitHub) لتصبح جميع الطلبات والموافقات والإشعارات مشتركة لحظياً بين كل هواتف أهالي صلخد:
+                        </p>
+                        <input id="cloud-db-url-input" dir="ltr" type="url" placeholder="https://salkhad-smart-default-rtdb.firebaseio.com" class="w-full rounded-xl border-slate-300 text-xs py-2 px-3 text-left font-mono"/>
+                        <div class="flex gap-2">
+                            <button onclick="saveAndConnectCloudDB()" class="flex-1 bg-deep-charcoal text-gold py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1">
+                                <span class="material-symbols-outlined text-[16px]">cloud_upload</span>
+                                <span>حفظ ومزامنة البيانات الآن</span>
+                            </button>
+                            <button onclick="pullFromCloudNow()" class="px-3 bg-white border border-slate-300 text-deep-charcoal py-2.5 rounded-xl text-xs font-bold">
+                                جلب التحديثات
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -681,11 +759,12 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1">التصنيف الفرعي الشامل</label>
                     <select id="sub-tag" required class="w-full rounded-xl border-slate-300 text-xs py-2.5 focus:ring-gold focus:border-gold">
-                        <optgroup label="🏥 الطب والصحة">
+                        <optgroup label="🏥 الطب، الصحة، والرياضة (Gym)">
                             <option value="طبيب / عيادة">🩺 طبيب / عيادة تخصصية</option>
                             <option value="صيدلية">💊 صيدلية</option>
                             <option value="مخبر / أشعة / تمريض">🔬 مخبر تحاليل / مركز أشعة / تمريض منزلي</option>
                             <option value="طب أسنان">🦷 عيادة طب أسنان وتعويضات</option>
+                            <option value="نادي رياضي / Gym">🏋️ نادي رياضي (Gym) / لياقة بدنية وكمال أجسام</option>
                         </optgroup>
                         <optgroup label="🚕 المواصلات والتوصيل">
                             <option value="تكسي وتوصيل">🚕 مكتب تكسي / سيارة جوالة</option>
@@ -727,8 +806,8 @@
                         <input id="sub-location" required type="text" placeholder="مثال: الشارع الرئيسي" class="w-full rounded-xl border-slate-300 text-xs py-2.5"/>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">رقم التواصل</label>
-                        <input id="sub-phone" required type="text" placeholder="09xxxxxxxx" class="w-full rounded-xl border-slate-300 text-xs py-2.5"/>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">رقم التواصل (اختياري)</label>
+                        <input id="sub-phone" type="text" placeholder="اختياري (أو عبر رسائل الحساب)" class="w-full rounded-xl border-slate-300 text-xs py-2.5"/>
                     </div>
                 </div>
 
@@ -784,6 +863,39 @@
             <button onclick="closeEmergencyModal(); openSubmitModal('initiatives');" class="w-full bg-error text-white py-2.5 rounded-xl text-xs font-bold">
                 إرسال نداء استغاثة دوائية أو زمرة دم عاجلة
             </button>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 5: إرسال رسالة مباشرة لحساب مستخدم آخر داخل التطبيق ==================== -->
+    <div id="direct-message-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-surface w-full max-w-sm rounded-3xl p-5 shadow-2xl border border-gold">
+            <div class="flex justify-between items-center mb-3 pb-2 border-b border-slate-200">
+                <div class="flex items-center gap-2 text-deep-charcoal">
+                    <span class="material-symbols-outlined text-tertiary">forward_to_inbox</span>
+                    <h3 class="font-extrabold text-sm">إرسال رسالة داخل التطبيق</h3>
+                </div>
+                <button onclick="closeDirectMessageModal()" class="text-slate-400 hover:text-slate-700">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <form onsubmit="handleSendDirectMessage(event)" class="space-y-3">
+                <input id="dm-to-userid" type="hidden" value=""/>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">إلى حساب:</label>
+                    <input id="dm-to-name" required type="text" placeholder="اسم المستلم أو صاحب الإعلان" class="w-full rounded-xl border-slate-300 text-xs py-2 bg-slate-50"/>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">عنوان الخدمة أو الموضوع</label>
+                    <input id="dm-subject" required type="text" placeholder="مثال: استفسار عن اشتراك النادي الرياضي" class="w-full rounded-xl border-slate-300 text-xs py-2"/>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">نص الرسالة</label>
+                    <textarea id="dm-body" required rows="3" placeholder="اكتب رسالتك لتصل فوراً إلى صندوق رسائل المستخدم..." class="w-full rounded-xl border-slate-300 text-xs"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-deep-charcoal text-gold py-2.5 rounded-xl text-xs font-extrabold">
+                    إرسال الرسالة الآن
+                </button>
+            </form>
         </div>
     </div>
 
@@ -876,6 +988,19 @@
                 status: 'approved',
                 author: 'إدارة التطبيق',
                 createdAt: 'منذ أسبوع'
+            },
+            {
+                id: 'item-gym-1',
+                category: 'directory',
+                tag: 'نادي رياضي / Gym',
+                title: 'نادي القلعة الرياضي (Gym) للرشاقة وكمال الأجسام',
+                location: 'صلخد - الشارع الرئيسي قرب المركز الثقافي',
+                phone: '0944889900',
+                desc: 'أجهزة حديثة للياقة البدنية وكمال الأجسام، أوقات مخصصة للشباب وأوقات للسيدات بإشراف مدربين مختصين.',
+                status: 'approved',
+                author: 'كابتن رامي',
+                authorId: 'user-gym-coach',
+                createdAt: 'اليوم'
             },
             // الوظائف والتعليم والإعلانات
             {
@@ -1082,11 +1207,20 @@
         let appNotifications = [];
         let appEmergencyContacts = [];
         let appCityPulse = {};
+        let appMessages = [];
+        let currentUser = null;
         let devicePushEnabled = false;
         let isAdminLoggedIn = false;
         let currentModalSection = 'directory';
         let currentModalFilter = 'الكل';
         let currentAdminSubTab = 'pending';
+
+        // ==================== إعداد الرابط السحابي (Firebase Realtime Database) ====================
+        // ملاحظة قبل الرفع على GitHub: ضع رابط قاعدة بيانات Firebase هنا بين علامتي التنصيص ليعمل تلقائياً عند كل أهالي صلخد:
+        const DEFAULT_CLOUD_DB_URL = "https://salkhad-smart-default-rtdb.firebaseio.com"; 
+        let cloudDbUrl = "";
+        let cloudPollTimer = null;
+        let lastSeenNotifId = "";
 
         function safeStorageGet(key, fallback) {
             try {
@@ -1101,16 +1235,161 @@
             try {
                 localStorage.setItem(key, JSON.stringify(val));
             } catch (e) {}
+            // مزامنة تلقائية للسحابة عند أي تعديل
+            pushStateToCloud();
+        }
+
+        function cleanFirebaseUrl(url) {
+            if (!url) return "";
+            let u = url.trim().replace(/\/+$/, "");
+            if (u.endsWith(".json")) u = u.slice(0, -5);
+            return u;
+        }
+
+        function updateCloudStatusBadge(connected, msg) {
+            const dot = document.getElementById('cloud-status-dot');
+            const label = document.getElementById('cloud-status-label');
+            const input = document.getElementById('cloud-db-url-input');
+            if (input && cloudDbUrl && !input.value) input.value = cloudDbUrl;
+            if (!dot || !label) return;
+            if (connected) {
+                dot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-animation';
+                label.innerText = msg || 'متصل بالسحابة الحية (تزامن مباشر مع جميع الهواتف)';
+            } else {
+                dot.className = 'w-2.5 h-2.5 rounded-full bg-amber-500';
+                label.innerText = msg || 'الوضع الحالي: تخزين محلي (أضف رابط Firebase للمزامنة)';
+            }
+        }
+
+        async function pushStateToCloud() {
+            const base = cleanFirebaseUrl(cloudDbUrl);
+            if (!base || !base.startsWith('https://')) return;
+            try {
+                const payload = {
+                    items: appItems,
+                    notifications: appNotifications,
+                    emergency: appEmergencyContacts,
+                    pulse: appCityPulse,
+                    messages: appMessages,
+                    updatedAt: Date.now()
+                };
+                await fetch(base + '/salkhad_app_v3.json', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                updateCloudStatusBadge(true, 'متصل بالسحابة الحية ✓ (تمت المزامنة)');
+            } catch (e) {
+                updateCloudStatusBadge(false, 'تعذر الاتصال بالسحابة — يعمل من الذاكرة المحلية');
+            }
+        }
+
+        async function pullFromCloudNow(silent = false) {
+            const base = cleanFirebaseUrl(cloudDbUrl);
+            if (!base || !base.startsWith('https://')) {
+                if (!silent) showToast('أدخل رابط Firebase الصحيح أولاً (يبدأ بـ https://)', 'warning');
+                return;
+            }
+            try {
+                const res = await fetch(base + '/salkhad_app_v3.json');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                if (!data) {
+                    // إذا كانت قاعدة البيانات السحابية جديدة وفارغة، نرفع البيانات الافتراضية إليها فوراً
+                    await pushStateToCloud();
+                    if (!silent) showToast('تم تهيئة قاعدة البيانات السحابية ورفع البيانات بنجاح!');
+                    return;
+                }
+                if (Array.isArray(data.items)) {
+                    appItems = data.items;
+                    try { localStorage.setItem('salkhad_items_v3', JSON.stringify(appItems)); } catch (e) {}
+                }
+                if (Array.isArray(data.emergency)) {
+                    appEmergencyContacts = data.emergency;
+                    try { localStorage.setItem('salkhad_emergency_v3', JSON.stringify(appEmergencyContacts)); } catch (e) {}
+                }
+                if (data.pulse) {
+                    appCityPulse = data.pulse;
+                    try { localStorage.setItem('salkhad_pulse_v3', JSON.stringify(appCityPulse)); } catch (e) {}
+                }
+                if (Array.isArray(data.messages)) {
+                    appMessages = data.messages;
+                    try { localStorage.setItem('salkhad_messages_v3', JSON.stringify(appMessages)); } catch (e) {}
+                }
+                if (Array.isArray(data.notifications) && data.notifications.length > 0) {
+                    const newest = data.notifications[0];
+                    if (lastSeenNotifId && newest.id !== lastSeenNotifId && devicePushEnabled) {
+                        playNotificationChime();
+                        showToast(`🔔 إشعار جديد: ${newest.title} — ${newest.body}`, newest.type === 'emergency' ? 'error' : 'success');
+                    }
+                    lastSeenNotifId = newest.id;
+                    appNotifications = data.notifications;
+                    try { localStorage.setItem('salkhad_notifs_v3', JSON.stringify(appNotifications)); } catch (e) {}
+                }
+                updateAllCountersAndViews();
+                updateCloudStatusBadge(true);
+                if (!silent) showToast('تم جلب أحدث البيانات من السحابة بنجاح!');
+            } catch (e) {
+                updateCloudStatusBadge(false, 'وضع عدم الاتصال — يتم العرض من ذاكرة الهاتف');
+                if (!silent) showToast('تعذر الوصول للسحابة حالياً، تأكد من الرابط أو الإنترنت', 'error');
+            }
+        }
+
+        function saveAndConnectCloudDB() {
+            const input = document.getElementById('cloud-db-url-input');
+            const val = cleanFirebaseUrl(input ? input.value : '');
+            if (!val || !val.startsWith('https://')) {
+                showToast('يرجى إدخال رابط Firebase صحيح يبدأ بـ https://', 'error');
+                return;
+            }
+            cloudDbUrl = val;
+            try { localStorage.setItem('salkhad_cloud_db_url', cloudDbUrl); } catch (e) {}
+            pullFromCloudNow(false);
+            startCloudPolling();
+        }
+
+        function startCloudPolling() {
+            if (cloudPollTimer) clearInterval(cloudPollTimer);
+            if (!cleanFirebaseUrl(cloudDbUrl)) return;
+            cloudPollTimer = setInterval(() => {
+                pullFromCloudNow(true);
+            }, 12000);
         }
 
         function initAppData() {
+            cloudDbUrl = cleanFirebaseUrl(DEFAULT_CLOUD_DB_URL || safeStorageGet('salkhad_cloud_db_url', ''));
+            currentUser = safeStorageGet('salkhad_user_profile_v3', {
+                id: 'user-' + Math.random().toString(36).substring(2, 9),
+                name: 'مواطن من صلخد',
+                bio: 'عضو في مجتمع صلخد الذكي',
+                contact: ''
+            });
+            try { localStorage.setItem('salkhad_user_profile_v3', JSON.stringify(currentUser)); } catch (e) {}
             appItems = safeStorageGet('salkhad_items_v3', DEFAULT_ITEMS);
             appNotifications = safeStorageGet('salkhad_notifs_v3', DEFAULT_NOTIFICATIONS);
             appEmergencyContacts = safeStorageGet('salkhad_emergency_v3', DEFAULT_EMERGENCY);
             appCityPulse = safeStorageGet('salkhad_pulse_v3', DEFAULT_PULSE);
+            appMessages = safeStorageGet('salkhad_messages_v3', [
+                {
+                    id: 'msg-welcome',
+                    fromName: 'إدارة صلخد الذكي',
+                    fromContact: '',
+                    toName: currentUser.name,
+                    toUserId: currentUser.id,
+                    subject: 'مرحباً بك في مجتمع صلخد الذكي',
+                    body: 'يمكنك من خلال حسابك إضافة خدماتك واستقبال رسائل واستفسارات الأهالي مباشرة هنا حتى بدون وضع رقم هاتفك.',
+                    time: 'اليوم'
+                }
+            ]);
             devicePushEnabled = safeStorageGet('salkhad_push_enabled', true);
+            if (appNotifications.length > 0) lastSeenNotifId = appNotifications[0].id;
             updatePushToggleUI();
             updateAllCountersAndViews();
+            updateCloudStatusBadge(Boolean(cloudDbUrl));
+            if (cloudDbUrl) {
+                pullFromCloudNow(true);
+                startCloudPolling();
+            }
         }
 
         // ==================== 2. التنقل بين الواجهات الأربع ====================
@@ -1300,6 +1579,8 @@
                 headerPendingDot.classList.add('hidden');
             }
 
+            renderUserProfileCard();
+            renderUserMessages();
             renderNotifications();
             renderUserSubmissions();
             renderEmergencyViews();
@@ -1334,9 +1615,148 @@
             showToast('تم تحديد جميع الإشعارات كمقروءة');
         }
 
+        function renderUserProfileCard() {
+            if (!currentUser) return;
+            const nameEl = document.getElementById('profile-display-name');
+            const bioEl = document.getElementById('profile-display-bio');
+            const contactEl = document.getElementById('profile-display-contact');
+            if (nameEl) nameEl.innerText = currentUser.name || 'زائر من صلخد';
+            if (bioEl) bioEl.innerText = currentUser.bio || 'عضو في مجتمع صلخد الذكي';
+            if (contactEl) {
+                contactEl.innerText = currentUser.contact ? `وسيلة الاتصال الاختيارية: ${currentUser.contact}` : 'التواصل مفعل عبر رسائل الحساب الداخلية (بدون إظهار رقم هاتف)';
+            }
+            const myCount = appItems.filter(i => (currentUser && i.authorId === currentUser.id) || (currentUser && i.author === currentUser.name)).length;
+            const statMy = document.getElementById('stat-my-submissions');
+            if (statMy) statMy.innerText = myCount;
+        }
+
+        function toggleEditProfileForm() {
+            const form = document.getElementById('user-profile-form');
+            if (!form) return;
+            if (form.classList.contains('hidden')) {
+                document.getElementById('prof-name-input').value = currentUser ? currentUser.name : '';
+                document.getElementById('prof-bio-input').value = currentUser ? (currentUser.bio || '') : '';
+                document.getElementById('prof-contact-input').value = currentUser ? (currentUser.contact || '') : '';
+                form.classList.remove('hidden');
+            } else {
+                form.classList.add('hidden');
+            }
+        }
+
+        function saveUserProfile(event) {
+            event.preventDefault();
+            const name = document.getElementById('prof-name-input').value.trim();
+            const bio = document.getElementById('prof-bio-input').value.trim();
+            const contact = document.getElementById('prof-contact-input').value.trim();
+            if (!name) return;
+
+            currentUser = {
+                id: currentUser && currentUser.id ? currentUser.id : ('user-' + Date.now()),
+                name,
+                bio: bio || 'عضو في مجتمع صلخد الذكي',
+                contact
+            };
+            try { localStorage.setItem('salkhad_user_profile_v3', JSON.stringify(currentUser)); } catch (e) {}
+            document.getElementById('user-profile-form').classList.add('hidden');
+            updateAllCountersAndViews();
+            showToast(`تم حفظ حسابك باسم "${name}" بنجاح!`);
+        }
+
+        function openDirectMessageModal(toUserId = '', toName = '', defaultSubject = '') {
+            const modal = document.getElementById('direct-message-modal');
+            document.getElementById('dm-to-userid').value = toUserId;
+            document.getElementById('dm-to-name').value = toName;
+            document.getElementById('dm-subject').value = defaultSubject ? `بخصوص: ${defaultSubject}` : '';
+            document.getElementById('dm-body').value = '';
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeDirectMessageModal() {
+            const modal = document.getElementById('direct-message-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleSendDirectMessage(event) {
+            event.preventDefault();
+            const toUserId = document.getElementById('dm-to-userid').value.trim();
+            const toName = document.getElementById('dm-to-name').value.trim();
+            const subject = document.getElementById('dm-subject').value.trim();
+            const body = document.getElementById('dm-body').value.trim();
+            if (!toName || !body) return;
+
+            const newMsg = {
+                id: 'msg-' + Date.now(),
+                fromUserId: currentUser ? currentUser.id : '',
+                fromName: currentUser ? currentUser.name : 'مواطن من صلخد',
+                fromContact: currentUser && currentUser.contact ? currentUser.contact : '',
+                toUserId,
+                toName,
+                subject,
+                body,
+                time: 'الآن'
+            };
+
+            appMessages.unshift(newMsg);
+            safeStorageSet('salkhad_messages_v3', appMessages);
+            closeDirectMessageModal();
+            updateAllCountersAndViews();
+            showToast(`تم إرسال رسالتك إلى حساب "${toName}" بنجاح!`);
+        }
+
+        function renderUserMessages() {
+            const container = document.getElementById('user-messages-list');
+            const countBadge = document.getElementById('my-messages-count');
+            if (!container || !currentUser) return;
+
+            const myMsgs = appMessages.filter(m =>
+                m.toUserId === currentUser.id ||
+                m.toName === currentUser.name ||
+                m.fromUserId === currentUser.id ||
+                m.fromName === currentUser.name ||
+                (isAdminLoggedIn && m.toName.includes('إدارة'))
+            );
+
+            if (countBadge) countBadge.innerText = myMsgs.length;
+
+            if (myMsgs.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 text-center py-3">لا توجد رسائل في حسابك حالياً.</p>`;
+                return;
+            }
+
+            container.innerHTML = myMsgs.map(m => {
+                const isSentByMe = (m.fromUserId && m.fromUserId === currentUser.id) || (m.fromName === currentUser.name);
+                return `
+                    <div class="p-3 rounded-2xl ${isSentByMe ? 'bg-slate-50 border border-slate-200' : 'bg-amber-50/60 border border-gold/50'}">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[11px] font-extrabold text-deep-charcoal">
+                                ${isSentByMe ? `📤 إلى: ${m.toName}` : `📥 من: ${m.fromName}`}
+                            </span>
+                            <span class="text-[10px] text-slate-400">${m.time}</span>
+                        </div>
+                        <p class="text-xs font-bold text-tertiary mb-0.5">${m.subject}</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">${m.body}</p>
+                        ${m.fromContact && !isSentByMe ? `<p class="text-[10px] text-emerald-700 font-bold mt-1">📞 وسيلة تواصل المرسل: ${m.fromContact}</p>` : ''}
+                        ${!isSentByMe ? `
+                            <div class="mt-2 text-left">
+                                <button onclick="openDirectMessageModal('${m.fromUserId || ''}', '${m.fromName}', '${m.subject}')" class="text-[11px] bg-deep-charcoal text-gold px-2.5 py-1 rounded-lg font-bold">
+                                    رد على الرسالة
+                                </button>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
         function renderUserSubmissions() {
             const container = document.getElementById('user-submissions-list');
-            const myItems = appItems.filter(i => i.author && (i.author.includes('المستخدم') || i.author.includes('مواطن')));
+            const myItems = appItems.filter(i =>
+                (currentUser && i.authorId === currentUser.id) ||
+                (currentUser && i.author === currentUser.name) ||
+                (i.author && i.author.includes('المستخدم'))
+            );
             if (myItems.length === 0) {
                 container.innerHTML = `<p class="text-xs text-slate-400 text-center py-3">لم تقم بإرسال طلبات بعد. اضغط على "+ طلب جديد" لإضافة خدمة.</p>`;
                 return;
@@ -1470,7 +1890,7 @@
                 icon.innerText = 'storefront';
                 title.innerText = 'دليل المحلات والخدمات الشامل في صلخد';
                 subtitle.innerText = 'الأطباء، الصيدليات، المطاعم، الطاقة الشمسية، والورشات';
-                renderFilterPills(['الكل', 'صيدلية', 'طبيب / عيادة', 'مخبر / أشعة / تمريض', 'طب أسنان', 'مطاعم ومأكولات', 'مواد غذائية وسوبرماركت', 'طاقة شمسية وكهربائيات', 'محل تجاري / مهنة', 'اتصالات وإنترنت ومكتبات', 'زراعة وبيطرة']);
+                renderFilterPills(['الكل', 'نادي رياضي / Gym', 'صيدلية', 'طبيب / عيادة', 'مخبر / أشعة / تمريض', 'طب أسنان', 'مطاعم ومأكولات', 'مواد غذائية وسوبرماركت', 'طاقة شمسية وكهربائيات', 'محل تجاري / مهنة', 'اتصالات وإنترنت ومكتبات', 'زراعة وبيطرة']);
             } else if (section === 'transport') {
                 icon.innerText = 'local_taxi';
                 title.innerText = 'المواصلات، التكاسي، السرافيس، والدليفري';
@@ -1530,15 +1950,22 @@
                     </div>
                     <h4 class="font-extrabold text-sm text-deep-charcoal mb-1">${item.title}</h4>
                     <p class="text-xs text-slate-600 leading-relaxed mb-3">${item.desc}</p>
-                    <div class="flex items-center justify-between pt-2.5 border-t border-slate-100 text-xs">
+                    <div class="flex items-center justify-between pt-2.5 border-t border-slate-100 text-xs gap-2 flex-wrap">
                         <span class="text-slate-500 flex items-center gap-1">
                             <span class="material-symbols-outlined text-[15px] text-tertiary">location_on</span>
-                            ${item.location}
+                            ${item.location} • <strong class="text-deep-charcoal">${item.author || 'مواطن'}</strong>
                         </span>
-                        <button onclick="copyPhoneNumber('${item.phone}', '${item.title}')" class="bg-deep-charcoal text-gold px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 active:scale-95 transition-transform">
-                            <span class="material-symbols-outlined text-[15px]">call</span>
-                            <span>${item.phone}</span>
-                        </button>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="openDirectMessageModal('${item.authorId || ''}', '${item.author || 'صاحب الإعلان'}', '${item.title}')" class="bg-amber-100 text-amber-900 hover:bg-amber-200 px-2.5 py-1.5 rounded-xl font-bold text-[11px] flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[14px]">mail</span>
+                                <span>مراسلة الحساب</span>
+                            </button>
+                            ${item.phone && item.phone !== 'غير محدد' ? `
+                            <button onclick="copyPhoneNumber('${item.phone}', '${item.title}')" class="bg-deep-charcoal text-gold px-2.5 py-1.5 rounded-xl font-bold text-[11px] flex items-center gap-1 active:scale-95 transition-transform">
+                                <span class="material-symbols-outlined text-[14px]">call</span>
+                                <span>${item.phone}</span>
+                            </button>` : ''}
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -1620,10 +2047,11 @@
                 tag,
                 title,
                 location,
-                phone,
+                phone: phone || (currentUser && currentUser.contact ? currentUser.contact : 'غير محدد'),
                 desc,
                 status: 'pending',
-                author: 'المستخدم (مساهمة جديدة)',
+                author: currentUser ? currentUser.name : 'مواطن من صلخد',
+                authorId: currentUser ? currentUser.id : '',
                 createdAt: 'الآن'
             };
 
@@ -1718,17 +2146,16 @@
 
         function switchAdminSubTab(tab) {
             currentAdminSubTab = tab;
-            const tabs = ['pending', 'transport', 'emergency', 'approved', 'broadcast'];
+            const tabs = ['pending', 'transport', 'emergency', 'approved', 'broadcast', 'cloud'];
             tabs.forEach(t => {
                 const btn = document.getElementById('admin-tab-' + t);
                 const container = document.getElementById('admin-' + t + '-container');
                 if (!btn || !container) return;
-                const spanClass = t === 'broadcast' ? 'col-span-2 sm:col-span-1 ' : '';
                 if (t === tab) {
-                    btn.className = spanClass + 'py-2 px-2 rounded-xl text-[11px] font-bold bg-deep-charcoal text-gold';
+                    btn.className = 'py-2 px-1.5 rounded-xl text-[11px] font-bold bg-deep-charcoal text-gold';
                     container.classList.remove('hidden');
                 } else {
-                    btn.className = spanClass + 'py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600';
+                    btn.className = 'py-2 px-1.5 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600';
                     container.classList.add('hidden');
                 }
             });
