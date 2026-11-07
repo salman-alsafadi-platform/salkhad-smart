@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>صلخد الذكي - المنصة المجتمعية التفاعلية</title>
+    
+    <!-- مكتبة Tailwind CSS والخطوط الرسمية -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-fixed-dim": "#c8c6c3",
+                "surface": "#fcf8f7",
+                "error-container": "#ffdad6",
+                "secondary-fixed": "#dae4ea",
+                "surface-container-highest": "#e5e2e1",
+                "on-secondary-fixed": "#141d22",
+                "surface-dim": "#ddd9d8",
+                "surface-container-high": "#ebe7e6",
+                "surface-bright": "#fcf8f7",
+                "on-primary-fixed-variant": "#474744",
+                "secondary-fixed-dim": "#bec8ce",
+                "tertiary": "#725a39",
+                "on-error-container": "#93000a",
+                "on-secondary-fixed-variant": "#3f484e",
+                "primary": "#5e5e5c",
+                "tertiary-fixed": "#feddb3",
+                "on-primary": "#ffffff",
+                "primary-fixed": "#e4e2de",
+                "on-error": "#ffffff",
+                "tertiary-container": "#fffaf8",
+                "on-background": "#1c1b1b",
+                "tertiary-fixed-dim": "#e1c299",
+                "outline-variant": "#c6c7c0",
+                "on-surface-variant": "#454742",
+                "inverse-surface": "#313030",
+                "on-primary-fixed": "#1b1c1a",
+                "on-tertiary-container": "#886f4c",
+                "primary-container": "#fdfbf7",
+                "inverse-primary": "#c8c6c3",
+                "surface-container-low": "#f7f3f2",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-fixed-variant": "#584324",
+                "on-secondary": "#ffffff",
+                "on-tertiary-fixed": "#281801",
+                "surface-variant": "#e5e2e1",
+                "on-tertiary": "#ffffff",
+                "inverse-on-surface": "#f4f0ef",
+                "on-secondary-container": "#5c666b",
+                "error": "#ba1a1a",
+                "outline": "#767872",
+                "secondary-container": "#dae4ea",
+                "background": "#fcf8f7",
+                "surface-tint": "#5e5e5c",
+                "on-primary-container": "#747471",
+                "secondary": "#566065",
+                "surface-container": "#f1edec",
+                "on-surface": "#1c1b1b",
+                "deep-charcoal": "#1e272c",
+                "gold": "#d2b48c"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "2xl": "1rem",
+                "3xl": "1.5rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xl": "48px",
+                "gutter": "16px",
+                "lg": "32px",
+                "xs": "8px",
+                "base": "4px",
+                "md": "24px",
+                "sm": "16px",
+                "container-padding": "20px"
+            },
+            "fontFamily": {
+                "body-md": ["Tajawal"],
+                "title-lg": ["Tajawal"],
+                "headline-md": ["Tajawal"],
+                "label-sm": ["Tajawal"],
+                "display-lg": ["Tajawal"],
+                "body-lg": ["Tajawal"],
+                "display-lg-mobile": ["Tajawal"]
+            },
+            "fontSize": {
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "label-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "display-lg": ["42px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            background-color: #fdfbf7;
+            font-family: 'Tajawal', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .luxury-card {
+            background: #ffffff;
+            border: 1px solid rgba(229, 225, 218, 0.75);
+            box-shadow: 0px 4px 20px rgba(30, 39, 44, 0.05);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .luxury-card:hover {
+            box-shadow: 0px 8px 28px rgba(30, 39, 44, 0.09);
+            border-color: rgba(210, 180, 140, 0.55);
+        }
+        .luxury-gradient {
+            background: linear-gradient(135deg, #1e272c 0%, #313d44 100%);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #d2b48c 0%, #b89668 100%);
+        }
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .45; }
+        }
+        .safe-bottom { padding-bottom: 120px; }
+        .view-section { display: none; animation: fadeIn 0.3s ease-out; }
+        .view-section.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-on-surface overflow-x-hidden bg-background">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-20 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 w-[90%] max-w-sm pointer-events-none"></div>
+
+    <!-- شريط الرأس العلوي (TopAppBar) -->
+    <header class="bg-surface/90 backdrop-blur-xl fixed top-0 w-full z-40 shadow-sm h-16 flex flex-row-reverse justify-between items-center px-container-padding border-b border-outline-variant/25">
+        <div class="flex items-center gap-2.5">
+            <div class="text-left">
+                <div class="flex items-center gap-1.5 justify-end">
+                    <span id="admin-status-chip" class="hidden text-[10px] bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded-full font-bold">وضع المشرف</span>
+                    <span id="header-title" class="font-bold tracking-tight text-deep-charcoal text-lg">صلخد الذكي</span>
+                </div>
+                <p class="text-[10px] text-slate-400 -mt-1">بوابة الخدمات التفاعلية</p>
+            </div>
+            <!-- شعار التطبيق (بوابة سرية للأدمن عند النقر 5 مرات متتالية) -->
+            <div onclick="handleSecretLogoTap()" class="w-10 h-10 rounded-full border-2 border-gold/60 shadow-sm bg-deep-charcoal flex items-center justify-center cursor-pointer active:scale-90 transition-transform relative select-none">
+                <span class="material-symbols-outlined text-gold text-[22px]">castle</span>
+                <span id="header-pending-dot" class="hidden absolute -top-0.5 -right-0.5 w-3 h-3 bg-amber-500 border-2 border-white rounded-full"></span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <button onclick="openEmergencyModal()" class="bg-error text-on-error px-3.5 py-1.5 rounded-full font-label-sm text-label-sm active:scale-95 transition-transform flex items-center gap-1.5 shadow-sm hover:bg-red-800">
+                <span class="material-symbols-outlined text-[18px]">emergency</span>
+                <span>طوارئ</span>
+            </button>
+            <button onclick="openSubmitModal()" class="bg-deep-charcoal text-gold border border-gold/40 px-3 py-1.5 rounded-full text-xs font-bold active:scale-95 transition-transform flex items-center gap-1 shadow-sm">
+                <span class="material-symbols-outlined text-[16px]">add_circle</span>
+                <span>أضف خدمة</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- مساحة المحتوى الرئيسية -->
+    <main class="mt-20 px-container-padding safe-bottom max-w-lg mx-auto">
+        
+        <!-- ==================== VIEW 1: HOME (الرئيسية) ==================== -->
+        <div id="view-home" class="view-section active">
+            
+            <!-- ترحيب وشريط النبض اليومي لمدينة صلخد -->
+            <section class="py-3 flex justify-between items-end">
+                <div>
+                    <h1 class="text-2xl md:text-3xl text-deep-charcoal mb-0.5 font-extrabold">مرحباً بك في صلخد</h1>
+                    <p class="text-xs text-on-surface-variant">مجتمعنا التفاعلي، بذكاء وتكافل أهالي الجبل.</p>
+                </div>
+                <div class="bg-surface-container-lowest border border-gold/40 rounded-2xl px-3 py-1.5 text-center shadow-sm">
+                    <div class="flex items-center gap-1 text-deep-charcoal font-bold text-xs">
+                        <span class="material-symbols-outlined text-amber-600 text-[16px]">partly_cloudy_day</span>
+                        <span>18°C جبلية</span>
+                    </div>
+                    <span class="text-[10px] text-slate-400 block">ارتفاع 1350م</span>
+                </div>
+            </section>
+
+            <!-- شريط النبض المباشر (Live City Pulse: مناوبات، باصات، مياه) -->
+            <section class="mb-4">
+                <div class="luxury-gradient text-white p-4 rounded-3xl shadow-md relative overflow-hidden border border-gold/30">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-animation"></span>
+                            <h2 class="text-xs font-bold text-gold tracking-wide">نبض صلخد اليوم (محدث)</h2>
+                        </div>
+                        <button onclick="openSubmitModal('initiative')" class="text-[11px] bg-white/10 hover:bg-white/20 text-gold px-2.5 py-1 rounded-full transition-colors flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[13px]">edit_note</span>
+                            <span>إبلاغ / تحديث</span>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-right">
+                        <div onclick="openSectionModal('directory', 'صيدلية')" class="bg-white/10 hover:bg-white/15 p-2.5 rounded-2xl cursor-pointer transition-colors">
+                            <div class="flex items-center justify-between text-emerald-300 mb-1">
+                                <span class="material-symbols-outlined text-[18px]">local_pharmacy</span>
+                                <span class="text-[9px] bg-emerald-500/20 px-1.5 py-0.5 rounded-full">مناوبة الآن</span>
+                            </div>
+                            <p id="pulse-pharmacy-name" class="font-bold text-xs truncate">صيدلية الشفاء</p>
+                            <p id="pulse-pharmacy-sub" class="text-[10px] text-gray-300 truncate">ساحة القلعة</p>
+                        </div>
+                        <div onclick="openSectionModal('transport')" class="bg-white/10 hover:bg-white/15 p-2.5 rounded-2xl cursor-pointer transition-colors">
+                            <div class="flex items-center justify-between text-amber-300 mb-1">
+                                <span class="material-symbols-outlined text-[18px]">local_taxi</span>
+                                <span class="text-[9px] bg-amber-500/20 px-1.5 py-0.5 rounded-full">مواصلات ودليفري</span>
+                            </div>
+                            <p id="pulse-transport-title" class="font-bold text-xs truncate">السرافيس والتكاسي</p>
+                            <p id="pulse-transport-sub" class="text-[10px] text-gray-300 truncate">متوفر + خدمة توصيل</p>
+                        </div>
+                        <div onclick="openPulseDetailsModal('water')" class="bg-white/10 hover:bg-white/15 p-2.5 rounded-2xl cursor-pointer transition-colors">
+                            <div class="flex items-center justify-between text-sky-300 mb-1">
+                                <span class="material-symbols-outlined text-[18px]">water_drop</span>
+                                <span class="text-[9px] bg-sky-500/20 px-1.5 py-0.5 rounded-full">ضخ المياه</span>
+                            </div>
+                            <p id="pulse-water-title" class="font-bold text-xs truncate">الحي الشرقي</p>
+                            <p id="pulse-water-sub" class="text-[10px] text-gray-300 truncate">اليوم 4:00 عصراً</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- حقل البحث الذكي الفوري "اسأل صلوحي" -->
+            <section class="mb-4">
+                <div class="relative">
+                    <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-tertiary">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                    </div>
+                    <input id="salouhi-search-input" oninput="handleSalouhiSearch(this.value)" class="w-full h-14 pr-12 pl-24 rounded-2xl border border-gold/40 bg-surface-container-lowest shadow-sm focus:ring-2 focus:ring-gold transition-all text-sm placeholder:text-on-surface-variant/60" placeholder="اسأل صلوحي: صيدلية، طبيب، أستاذ، دواء، كراج..." type="text"/>
+                    <div class="absolute inset-y-0 left-2 flex items-center gap-1">
+                        <button id="clear-search-btn" onclick="clearSalouhiSearch()" class="hidden text-slate-400 hover:text-slate-700 p-1">
+                            <span class="material-symbols-outlined text-[18px]">close</span>
+                        </button>
+                        <button onclick="triggerSalouhiButton()" class="bg-deep-charcoal text-gold px-3.5 py-2 rounded-xl text-xs font-bold hover:bg-primary transition-colors">
+                            ابحث
+                        </button>
+                    </div>
+                </div>
+                <!-- اقتراحات سريعة لصلوحي -->
+                <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar mt-2 pb-1">
+                    <span class="text-[11px] text-slate-400 shrink-0">بحث سريع:</span>
+                    <button onclick="quickSearch('صيدلية')" class="text-[11px] bg-white border border-slate-200 hover:border-gold px-2.5 py-1 rounded-full text-slate-600 shrink-0 transition-colors">💊 صيدلية مناوبة</button>
+                    <button onclick="quickSearch('رياضيات')" class="text-[11px] bg-white border border-slate-200 hover:border-gold px-2.5 py-1 rounded-full text-slate-600 shrink-0 transition-colors">📐 مدرس رياضيات</button>
+                    <button onclick="quickSearch('أطفال')" class="text-[11px] bg-white border border-slate-200 hover:border-gold px-2.5 py-1 rounded-full text-slate-600 shrink-0 transition-colors">🩺 طبيب أطفال</button>
+                    <button onclick="quickSearch('جرعة أمل')" class="text-[11px] bg-white border border-slate-200 hover:border-gold px-2.5 py-1 rounded-full text-slate-600 shrink-0 transition-colors">🤝 دواء مجاني</button>
+                </div>
+
+                <!-- نتائج البحث الفوري لصلوحي -->
+                <div id="salouhi-results-box" class="hidden mt-3 luxury-card rounded-2xl p-4 border-2 border-gold/50 max-h-80 overflow-y-auto">
+                    <div class="flex justify-between items-center mb-2 pb-2 border-b border-slate-100">
+                        <span class="text-xs font-bold text-deep-charcoal flex items-center gap-1">
+                            <span class="material-symbols-outlined text-gold text-[18px]">psychology</span>
+                            إجابات صلوحي الفورية
+                        </span>
+                        <span id="salouhi-results-count" class="text-[11px] bg-gold/20 text-deep-charcoal px-2 py-0.5 rounded-full font-bold">0 نتيجة</span>
+                    </div>
+                    <div id="salouhi-results-list" class="space-y-2"></div>
+                </div>
+            </section>
+
+            <!-- بطاقة عداد الزوار المباشر + إحصائيات المساهمات -->
+            <section class="mb-4">
+                <div class="luxury-card p-3.5 rounded-2xl flex items-center justify-between border border-gold/30">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gold/15 text-deep-charcoal flex items-center justify-center">
+                            <span class="material-symbols-outlined text-tertiary">visibility</span>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-800">إجمالي زيارات ومساهمات الأهالي</h4>
+                            <p class="text-[11px] text-slate-500">تحديث تشاركي بإشراف إدارة التطبيق</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-1.5 bg-surface-container-high px-3 py-1.5 rounded-xl">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-animation"></span>
+                            <span id="visitor-count-badge" class="font-bold text-sm text-deep-charcoal">...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- شبكة البطاقات التفاعلية (Bento Grid) -->
+            <div class="grid grid-cols-2 gap-3.5">
+                <!-- بطاقة دليل المحلات والخدمات (عرض كامل) -->
+                <div onclick="openSectionModal('directory')" class="col-span-2 luxury-card p-5 rounded-3xl active:scale-[0.99] transition-transform cursor-pointer group">
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="bg-deep-charcoal text-gold p-3 rounded-2xl group-hover:scale-105 transition-transform">
+                            <span class="material-symbols-outlined text-[28px]">storefront</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span id="badge-count-directory" class="text-xs bg-gold/20 text-deep-charcoal font-bold px-2.5 py-1 rounded-full">8 خدمات</span>
+                            <span class="material-symbols-outlined text-on-surface-variant/40">chevron_left</span>
+                        </div>
+                    </div>
+                    <h3 class="font-title-lg text-title-lg font-bold mb-1 text-deep-charcoal">دليل المحلات والخدمات الشامل</h3>
+                    <p class="text-xs text-slate-500">الأطباء، الصيدليات المناوبة، المدرّسون، الورشات، والمحلات التجارية بصلخد</p>
+                </div>
+
+                <!-- بطاقة الوظائف والإعلانات -->
+                <div onclick="openSectionModal('jobs')" class="luxury-card p-4 rounded-3xl active:scale-[0.98] transition-transform cursor-pointer flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-start">
+                        <div class="bg-amber-100 text-amber-800 w-11 h-11 rounded-2xl flex items-center justify-center">
+                            <span class="material-symbols-outlined">campaign</span>
+                        </div>
+                        <span id="badge-count-jobs" class="text-[11px] bg-amber-50 text-amber-900 font-bold px-2 py-0.5 rounded-full border border-amber-200">4 فرص</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">الوظائف والتعليم</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">فرص عمل، دورات تعليمية، وإعلانات الأهالي</p>
+                    </div>
+                </div>
+
+                <!-- بطاقة المبادرات المجتمعية والدوائية -->
+                <div onclick="openSectionModal('initiatives')" class="luxury-card p-4 rounded-3xl active:scale-[0.98] transition-transform cursor-pointer flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-start">
+                        <div class="bg-teal-100 text-teal-800 w-11 h-11 rounded-2xl flex items-center justify-center">
+                            <span class="material-symbols-outlined">handshake</span>
+                        </div>
+                        <span id="badge-count-initiatives" class="text-[11px] bg-teal-50 text-teal-900 font-bold px-2 py-0.5 rounded-full border border-teal-200">4 مبادرات</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">المبادرات الدوائية</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">جرعة أمل، تبادل الأدوية، والتكافل</p>
+                    </div>
+                </div>
+
+                <!-- بطاقة المواصلات، التكاسي، السرافيس، والدليفري (عرض كامل) -->
+                <div onclick="openSectionModal('transport')" class="col-span-2 luxury-card p-5 rounded-3xl active:scale-[0.99] transition-transform cursor-pointer border-r-4 border-amber-500">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-amber-100 text-amber-900 p-3 rounded-2xl">
+                                <span class="material-symbols-outlined text-[26px]">local_taxi</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-base text-deep-charcoal">حركة المواصلات، التكاسي، والدليفري</h3>
+                                <p class="text-xs text-slate-500">تحديثات الباصات والسرافيس، أرقام التكاسي المناوبة، وخدمات التوصيل</p>
+                            </div>
+                        </div>
+                        <span id="badge-count-transport" class="text-xs bg-amber-100 text-amber-900 font-bold px-2.5 py-1 rounded-full shrink-0">4 خطوط</span>
+                    </div>
+                </div>
+
+                <!-- بطاقة إضافة إعلان أو خدمة من قبل المستخدم (تحتاج موافقة الأدمن) -->
+                <div onclick="openSubmitModal()" class="col-span-2 bg-gradient-to-l from-amber-50 via-white to-amber-50/60 border-2 border-dashed border-gold p-4 rounded-3xl cursor-pointer active:scale-[0.99] transition-all flex items-center justify-between">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-2xl bg-deep-charcoal text-gold flex items-center justify-center shrink-0 shadow-sm">
+                            <span class="material-symbols-outlined text-[26px]">post_add</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5">
+                                <h4 class="font-bold text-deep-charcoal text-sm">أضف مصلحتك، إعلانك، أو مبادرتك</h4>
+                                <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">مجاناً</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-0.5">يُرسل طلبك للمشرف (الأدمن) للمراجعة والموافقة الفورية قبل النشر للجميع</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-tertiary">arrow_back_ios</span>
+                </div>
+
+                <!-- بطاقة عن صلخد القلعة والتاريخ -->
+                <div onclick="openSectionModal('history')" class="col-span-2 luxury-gradient text-white p-5 rounded-3xl shadow-lg relative overflow-hidden cursor-pointer active:scale-[0.99] transition-transform">
+                    <div class="relative z-10 flex justify-between items-center">
+                        <div>
+                            <span class="bg-white/15 text-gold text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">استكشف هويتنا</span>
+                            <h3 class="text-lg font-bold mt-2">عن صلخد القلعة والتاريخ</h3>
+                            <p class="text-xs text-gray-300 mt-1">تاريخ قلعة صلخد الأيوبية، المئذنة، ومعالم حاضرة جبل العرب الجنوبية</p>
+                        </div>
+                        <span class="material-symbols-outlined text-gold text-4xl">castle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 2: NOTIFICATIONS (التنبيهات) ==================== -->
+        <div id="view-notifications" class="view-section">
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="font-headline-md text-deep-charcoal flex items-center gap-2 font-bold">
+                    <span class="material-symbols-outlined text-error">notifications_active</span>
+                    التنبيهات والإشعارات
+                </h3>
+                <button onclick="markAllNotificationsRead()" class="text-xs text-tertiary hover:underline font-bold">تحديد الكل كمقروء</button>
+            </div>
+
+            <!-- شريط تفعيل إشعارات الجهاز المباشرة (Web Push Notifications) للرابط النظامي -->
+            <div class="luxury-card rounded-2xl p-4 mb-4 border border-gold/50 bg-gradient-to-l from-amber-50/70 to-white flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-deep-charcoal text-gold flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-[20px]">ring_volume</span>
+                    </div>
+                    <div>
+                        <h4 class="font-extrabold text-xs text-deep-charcoal">إشعارات الهاتف والمتصفح التلقائية</h4>
+                        <p id="push-status-text" class="text-[11px] text-slate-500">فعّلها ليصلك رنين وإشعار على جهازك فور نشر أي خدمة أو تحديث مواصلات</p>
+                    </div>
+                </div>
+                <button id="push-toggle-btn" onclick="toggleDevicePushNotifications()" class="shrink-0 bg-deep-charcoal text-gold px-3.5 py-2 rounded-xl text-xs font-bold shadow-sm">
+                    تفعيل الآن
+                </button>
+            </div>
+
+            <div id="notifications-list" class="space-y-3"></div>
+        </div>
+
+        <!-- ==================== VIEW 3: PROFILE & ADMIN (حسابي ولوحة الأدمن) ==================== -->
+        <div id="view-profile" class="view-section">
+            <!-- بطاقة تعريف المستخدم -->
+            <section class="luxury-card rounded-3xl p-6 mb-4 text-center relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-gold/15 rounded-full blur-2xl"></div>
+                <div class="relative inline-block mb-3">
+                    <div class="w-20 h-20 rounded-full border-4 border-surface-container-highest bg-deep-charcoal flex items-center justify-center mx-auto shadow-lg text-gold">
+                        <span class="material-symbols-outlined text-[42px]">school</span>
+                    </div>
+                    <div class="absolute bottom-0 left-0 bg-emerald-600 w-7 h-7 rounded-full border-2 border-white flex items-center justify-center text-white shadow-md">
+                        <span class="material-symbols-outlined text-[15px]">verified</span>
+                    </div>
+                </div>
+                <h2 class="text-xl text-on-background mb-1 font-extrabold">أهلاً بك في مجتمع صلخد</h2>
+                <p class="text-xs text-on-surface-variant leading-relaxed px-2">
+                    مدرس رياضيات (عاشر وحادي عشر) | طالب هندسة معلوماتية في الجامعة الافتراضية السورية (SVU)
+                </p>
+
+                <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-100">
+                    <div class="bg-surface-container-low p-2.5 rounded-2xl">
+                        <span id="stat-approved-count" class="block text-lg font-extrabold text-deep-charcoal">0</span>
+                        <span class="text-[11px] text-slate-500">خدمة منشورة</span>
+                    </div>
+                    <div class="bg-surface-container-low p-2.5 rounded-2xl">
+                        <span id="stat-pending-count" class="block text-lg font-extrabold text-amber-700">0</span>
+                        <span class="text-[11px] text-slate-500">بانتظار الموافقة</span>
+                    </div>
+                    <div class="bg-surface-container-low p-2.5 rounded-2xl">
+                        <span id="stat-my-submissions" class="block text-lg font-extrabold text-emerald-700">0</span>
+                        <span class="text-[11px] text-slate-500">مساهماتي</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- مساهمات المستخدم الشخصية وحالتها -->
+            <section class="luxury-card rounded-3xl p-5 mb-4">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-bold text-sm text-deep-charcoal flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-tertiary text-[20px]">history_edu</span>
+                        الطلبات التي أرسلتها
+                    </h3>
+                    <button onclick="openSubmitModal()" class="text-xs bg-deep-charcoal text-gold px-3 py-1 rounded-xl font-bold">+ طلب جديد</button>
+                </div>
+                <div id="user-submissions-list" class="space-y-2.5"></div>
+            </section>
+
+            <!-- بوابة المشرف المخفية (لا تظهر أبداً للعلن، وتفتح فقط عبر الطرق السرية) -->
+            <section id="admin-gate-card" class="hidden">
+                <span id="gate-pending-badge">0 معلق</span>
+            </section>
+
+            <!-- لوحة تحكم الأدمن (مخفية تماماً عن المستخدمين وتظهر فقط بعد الدخول السري للأدمن) -->
+            <section id="admin-dashboard-panel" class="hidden luxury-card border-2 border-gold rounded-3xl p-5 mb-4">
+                <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-200">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-amber-700">verified_user</span>
+                        <div>
+                            <h3 class="font-extrabold text-sm text-deep-charcoal">لوحة تحكم المشرف - مراجعة الطلبات</h3>
+                            <p class="text-[11px] text-slate-500">أي طلب توافق عليه ينتقل فوراً إلى واجهة التطبيق العامة</p>
+                        </div>
+                    </div>
+                    <button onclick="logoutAdmin()" class="text-xs bg-red-50 text-error px-3 py-1.5 rounded-xl font-bold hover:bg-red-100">خروج</button>
+                </div>
+
+                <!-- تبويبات لوحة الأدمن الشاملة -->
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 mb-4">
+                    <button onclick="switchAdminSubTab('pending')" id="admin-tab-pending" class="py-2 px-2 rounded-xl text-[11px] font-bold bg-deep-charcoal text-gold">الطلبات (<span id="admin-pending-num">0</span>)</button>
+                    <button onclick="switchAdminSubTab('transport')" id="admin-tab-transport" class="py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">🚕 المواصلات والنبض</button>
+                    <button onclick="switchAdminSubTab('emergency')" id="admin-tab-emergency" class="py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">🚨 أرقام الطوارئ</button>
+                    <button onclick="switchAdminSubTab('approved')" id="admin-tab-approved" class="py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">المنشورة</button>
+                    <button onclick="switchAdminSubTab('broadcast')" id="admin-tab-broadcast" class="col-span-2 sm:col-span-1 py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600">🔔 بث إشعار</button>
+                </div>
+
+                <!-- 1. قائمة الطلبات المعلقة للمراجعة -->
+                <div id="admin-pending-container" class="space-y-3"></div>
+
+                <!-- 2. إدارة المواصلات (تكاسي، دليفري، باصات، سرافيس) ونبض المدينة -->
+                <div id="admin-transport-container" class="hidden space-y-4">
+                    <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-3.5 space-y-2.5">
+                        <h4 class="font-extrabold text-xs text-deep-charcoal flex items-center gap-1">
+                            <span class="material-symbols-outlined text-amber-700 text-[18px]">directions_bus</span>
+                            نشر تحديث فوري للمواصلات (تكاسي / دليفري / باصات / سرافيس)
+                        </h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <select id="admin-trans-type" class="rounded-xl border-slate-200 text-xs py-2">
+                                <option value="سرافيس وباصات">🚌 سرافيس وباصات (خطوط النقل)</option>
+                                <option value="تكسي وتوصيل">🚕 تكسي طلبات ومناوبة</option>
+                                <option value="دليفري طلبات">🛵 دليفري وتوصيل منزلي</option>
+                                <option value="نقل طلاب وموظفين">🚐 نقل طلاب جامعات وموظفين</option>
+                            </select>
+                            <input id="admin-trans-phone" type="text" placeholder="رقم السائق / المكتب / الكراج" class="rounded-xl border-slate-200 text-xs py-2"/>
+                        </div>
+                        <input id="admin-trans-title" type="text" placeholder="مثال: تكسي الشام (مناوب ليلي) أو خط سرافيس صلخد - السويداء" class="w-full rounded-xl border-slate-200 text-xs py-2"/>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input id="admin-trans-location" type="text" placeholder="الموقع / خط السير" class="rounded-xl border-slate-200 text-xs py-2"/>
+                            <input id="admin-trans-desc" type="text" placeholder="التوقيت والتفاصيل (مثلاً: متوفر حتى 11 ليلاً)" class="rounded-xl border-slate-200 text-xs py-2"/>
+                        </div>
+                        <button onclick="adminAddTransportUpdate()" class="w-full bg-deep-charcoal text-gold py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">send</span>
+                            <span>نشر في قسم المواصلات وإرسال تنبيه للأجهزة</span>
+                        </button>
+                    </div>
+
+                    <div class="bg-surface-container-low border border-slate-200 rounded-2xl p-3.5 space-y-2.5">
+                        <h4 class="font-extrabold text-xs text-deep-charcoal">تحديث بطاقات "نبض صلخد اليوم" في أعلى الرئيسية</h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input id="pulse-edit-pharmacy" type="text" placeholder="الصيدلية المناوبة (مثلاً: صيدلية الشفاء)" class="rounded-xl border-slate-200 text-xs py-2"/>
+                            <input id="pulse-edit-pharmacy-loc" type="text" placeholder="موقع الصيدلية (ساحة القلعة)" class="rounded-xl border-slate-200 text-xs py-2"/>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input id="pulse-edit-trans" type="text" placeholder="حالة السرافيس والتكاسي" class="rounded-xl border-slate-200 text-xs py-2"/>
+                            <input id="pulse-edit-trans-sub" type="text" placeholder="تفاصيل التوقيت (كل 30 د)" class="rounded-xl border-slate-200 text-xs py-2"/>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input id="pulse-edit-water" type="text" placeholder="الحي المخدوم بالمياه اليوم" class="rounded-xl border-slate-200 text-xs py-2"/>
+                            <input id="pulse-edit-water-sub" type="text" placeholder="ساعة الضخ (اليوم 4:00 عصراً)" class="rounded-xl border-slate-200 text-xs py-2"/>
+                        </div>
+                        <button onclick="saveCityPulseAdmin()" class="w-full bg-emerald-700 text-white py-2 rounded-xl text-xs font-bold">حفظ تحديث النبض وإشعار الأهالي</button>
+                    </div>
+                </div>
+
+                <!-- 3. تعديل وإضافة أرقام الطوارئ (تنعكس فوراً في نافذة الطوارئ ووضع بدون اتصال) -->
+                <div id="admin-emergency-container" class="hidden space-y-3">
+                    <div class="bg-red-50/70 border border-red-200 rounded-2xl p-3.5 space-y-2">
+                        <h4 class="font-extrabold text-xs text-error">إضافة أو تعديل رقم طوارئ</h4>
+                        <input id="emg-edit-id" type="hidden" value=""/>
+                        <input id="emg-title" type="text" placeholder="اسم الجهة (مثال: مشفى صلخد الوطني / صيدلية مناوبة)" class="w-full rounded-xl border-slate-200 text-xs py-2"/>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input id="emg-subtitle" type="text" placeholder="الوصف (مثال: قسم الإسعاف 24/7)" class="rounded-xl border-slate-200 text-xs py-2"/>
+                            <input id="emg-phone" type="text" placeholder="رقم الهاتف (مثال: 016-751000)" class="rounded-xl border-slate-200 text-xs py-2"/>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="saveEmergencyContact()" class="flex-1 bg-error text-white py-2 rounded-xl text-xs font-bold">حفظ رقم الطوارئ وتعميمه</button>
+                            <button onclick="resetEmergencyForm()" class="px-3 bg-white border border-slate-200 text-slate-600 rounded-xl text-xs font-bold">إفراغ</button>
+                        </div>
+                    </div>
+                    <div id="admin-emergency-list" class="space-y-2"></div>
+                </div>
+
+                <!-- 4. قائمة العناصر المنشورة مع إمكانية الحذف -->
+                <div id="admin-approved-container" class="hidden space-y-2.5"></div>
+
+                <!-- 5. نموذج إرسال إشعار عاجل للأهالي -->
+                <div id="admin-broadcast-container" class="hidden space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">نوع التنبيه</label>
+                        <select id="broadcast-type" class="w-full rounded-xl border-slate-200 text-xs">
+                            <option value="emergency">🚨 تنبيه طوارئ أو حالة جوية</option>
+                            <option value="service">💧 إشعار خدمي (مياه / كهرباء / صيدليات / مواصلات)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">عنوان التنبيه</label>
+                        <input id="broadcast-title" type="text" placeholder="مثال: جدول ضخ المياه أو توفر سرافيس" class="w-full rounded-xl border-slate-200 text-xs"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">نص التنبيه</label>
+                        <textarea id="broadcast-body" rows="2" placeholder="اكتب تفاصيل الإشعار ليظهر لجميع المستخدمين مع إشعار للهاتف..." class="w-full rounded-xl border-slate-200 text-xs"></textarea>
+                    </div>
+                    <button onclick="sendAdminBroadcast()" class="w-full bg-deep-charcoal text-gold py-2.5 rounded-xl text-xs font-bold">نشر التنبيه وإرسال إشعار للأجهزة فوراً</button>
+                </div>
+            </section>
+
+            <!-- تذييل إصدار التطبيق (يدعم الضغط المطول السري للمشرف) -->
+            <div onmousedown="startSecretLongPress()" onmouseup="cancelSecretLongPress()" onmouseleave="cancelSecretLongPress()" ontouchstart="startSecretLongPress()" ontouchend="cancelSecretLongPress()" class="text-center py-3 select-none cursor-default">
+                <p class="text-[11px] text-slate-400">منصة صلخد الذكي • الإصدار المجتمعي 2.1</p>
+            </div>
+        </div>
+
+        <!-- ==================== VIEW 4: OFFLINE MODE (بدون اتصال) ==================== -->
+        <div id="view-offline" class="view-section">
+            <div class="luxury-gradient rounded-3xl p-6 text-white shadow-xl relative overflow-hidden border border-gray-700">
+                <div class="relative z-10">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-gold pulse-animation"></span>
+                            <p class="text-lg text-gold font-bold">وضع الاستجابة المحلي نشط</p>
+                        </div>
+                        <span class="text-[10px] bg-white/10 px-2.5 py-1 rounded-full text-gray-200">يعمل بلا إنترنت</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-5">
+                        يتم استعراض كافة أرقام الطوارئ، المشافي، والصيدليات المحفوظة في ذاكرة هاتفك مباشرة دون الحاجة لاتصال بالشبكة.
+                    </p>
+                    
+                    <div id="offline-emergency-list" class="space-y-2.5 text-right"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ==================== MODAL 1: استعراض الأقسام التفاعلي (الدليل / الوظائف / المبادرات / التاريخ) ==================== -->
+    <div id="section-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-surface w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[88vh] flex flex-col shadow-2xl overflow-hidden animate-[fadeIn_0.25s_ease-out]">
+            <!-- رأس النافذة -->
+            <div class="p-4 bg-deep-charcoal text-white flex justify-between items-center">
+                <div class="flex items-center gap-2.5">
+                    <span id="modal-section-icon" class="material-symbols-outlined text-gold text-2xl">storefront</span>
+                    <div>
+                        <h3 id="modal-section-title" class="font-bold text-base">دليل المحلات والخدمات</h3>
+                        <p id="modal-section-subtitle" class="text-[11px] text-gray-300">تصفح وابحث وتواصل مباشرة</p>
+                    </div>
+                </div>
+                <button onclick="closeSectionModal()" class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20">
+                    <span class="material-symbols-outlined text-[20px]">close</span>
+                </button>
+            </div>
+
+            <!-- شريط الفلاتر الفرعية (يظهر في الدليل والوظائف والمبادرات) -->
+            <div id="modal-filter-bar" class="px-4 py-2.5 bg-surface-container-low border-b border-slate-200 flex gap-2 overflow-x-auto no-scrollbar"></div>
+
+            <!-- محتوى النافذة القابل للتمرير -->
+            <div id="modal-section-body" class="p-4 overflow-y-auto space-y-3 flex-1"></div>
+
+            <!-- ذيل النافذة مع زر إضافة عنصر جديد لهذا القسم -->
+            <div class="p-3.5 bg-white border-t border-slate-200 flex justify-between items-center">
+                <span class="text-xs text-slate-500">هل لديك إضافة تخدم أهالي صلخد؟</span>
+                <button id="modal-add-btn" onclick="openSubmitModalFromSection()" class="bg-deep-charcoal text-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">add</span>
+                    <span>أضف إلى هذا القسم</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 2: نموذج إضافة خدمة / إعلان من المستخدم (يرسل للأدمن) ==================== -->
+    <div id="submit-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-surface w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b border-slate-200">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-tertiary">post_add</span>
+                    <div>
+                        <h3 class="font-extrabold text-base text-deep-charcoal">إضافة خدمة أو إعلان للمدينة</h3>
+                        <p class="text-[11px] text-slate-500">سيتم مراجعة طلبك من الأدمن قبل ظهوره للعامة</p>
+                    </div>
+                </div>
+                <button onclick="closeSubmitModal()" class="text-slate-400 hover:text-slate-700">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <form id="user-submit-form" onsubmit="handleUserSubmission(event)" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">القسم الرئيسي</label>
+                    <select id="sub-category" required class="w-full rounded-xl border-slate-300 text-xs py-2.5 focus:ring-gold focus:border-gold">
+                        <option value="directory">🏪 دليل المحلات والأطباء والمهن الشامل</option>
+                        <option value="transport">🚕 المواصلات، التكاسي، السرافيس، والدليفري</option>
+                        <option value="jobs">💼 الوظائف، التعليم، العقارات، والإعلانات</option>
+                        <option value="initiatives">🤝 المبادرات الدوائية والتكافل (جرعة أمل)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">التصنيف الفرعي الشامل</label>
+                    <select id="sub-tag" required class="w-full rounded-xl border-slate-300 text-xs py-2.5 focus:ring-gold focus:border-gold">
+                        <optgroup label="🏥 الطب والصحة">
+                            <option value="طبيب / عيادة">🩺 طبيب / عيادة تخصصية</option>
+                            <option value="صيدلية">💊 صيدلية</option>
+                            <option value="مخبر / أشعة / تمريض">🔬 مخبر تحاليل / مركز أشعة / تمريض منزلي</option>
+                            <option value="طب أسنان">🦷 عيادة طب أسنان وتعويضات</option>
+                        </optgroup>
+                        <optgroup label="🚕 المواصلات والتوصيل">
+                            <option value="تكسي وتوصيل">🚕 مكتب تكسي / سيارة جوالة</option>
+                            <option value="دليفري طلبات">🛵 خدمة دليفري وتوصيل طلبات للمنازل</option>
+                            <option value="سرافيس وباصات">🚌 سرافيس وباصات (صلخد - السويداء - دمشق - القرى)</option>
+                            <option value="نقل طلاب وموظفين">🚐 نقل طلاب جامعات وموظفين وشحن بضائع</option>
+                        </optgroup>
+                        <optgroup label="🏪 التجارة، المطاعم، والورشات">
+                            <option value="مطاعم ومأكولات">🥙 مطعم / كافيه / حلويات ومعجنات</option>
+                            <option value="مواد غذائية وسوبرماركت">🛒 سوبرماركت / خضار وفواكه / لحوم</option>
+                            <option value="طاقة شمسية وكهربائيات">☀️ طاقة شمسية / بطاريات / صيانة كهرباء وإنفرتر</option>
+                            <option value="محل تجاري / مهنة">🛠️ ورشة صيانة (ميكانيك، حدادة، نجارة، صحية، دهان)</option>
+                            <option value="اتصالات وإنترنت ومكتبات">💻 موبايلات / إنترنت / مكتبة وقرطاسية</option>
+                            <option value="ألبسة ومفروشات">👗 ألبسة وأحذية / مفروشات ومنزليات</option>
+                            <option value="زراعة وبيطرة">🌱 صيدلية زراعية / مستلزمات فلاحية / عيادة بيطرية</option>
+                        </optgroup>
+                        <optgroup label="📐 التعليم، العمل، والعقارات">
+                            <option value="تعليم ودورات">📐 دروس خصوصية / دورات تعليمية / خدمات جامعية</option>
+                            <option value="فرصة عمل">📢 فرصة عمل / طلب توظيف</option>
+                            <option value="عقارات وإيجارات">🏠 عقارات (شقة للإيجار / بيع منزل أو أرض)</option>
+                            <option value="بيع وشراء مستعمل">🔄 بيع وشراء أثاث أو أجهزة مستعملة</option>
+                            <option value="مفقودات وموجودات">🔑 إعلان مفقودات أو موجودات في المدينة</option>
+                        </optgroup>
+                        <optgroup label="🤝 التكافل والمبادرات">
+                            <option value="دواء متوفر / مطلوب">❤️ دواء متوفر أو مطلوب مجاناً (جرعة أمل)</option>
+                            <option value="تبرع بالدم / إعارة أجهزة">🩸 نداء تبرع بالدم / إعارة أجهزة طبية (رذاذ، أوكسجين)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">اسم الخدمة / العنوان واضحاً</label>
+                    <input id="sub-title" required type="text" placeholder="مثال: دورة مكثفة لمادة الرياضيات - حادي عشر" class="w-full rounded-xl border-slate-300 text-xs py-2.5"/>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2.5">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">الموقع في صلخد</label>
+                        <input id="sub-location" required type="text" placeholder="مثال: الشارع الرئيسي" class="w-full rounded-xl border-slate-300 text-xs py-2.5"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">رقم التواصل</label>
+                        <input id="sub-phone" required type="text" placeholder="09xxxxxxxx" class="w-full rounded-xl border-slate-300 text-xs py-2.5"/>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">التفاصيل والمواعيد</label>
+                    <textarea id="sub-desc" required rows="3" placeholder="اكتب التفاصيل، أوقات الدوام، أو شروط المبادرة..." class="w-full rounded-xl border-slate-300 text-xs"></textarea>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-[11px] text-amber-900 flex items-start gap-2">
+                    <span class="material-symbols-outlined text-amber-700 text-[18px] shrink-0">info</span>
+                    <span>بمجرد الضغط على إرسال، سيظهر طلبك في <strong>لوحة تحكم الأدمن</strong> بحالة (قيد المراجعة)، وعند موافقة المشرف سينتشر لجميع المستخدمين فوراً.</span>
+                </div>
+
+                <button type="submit" class="w-full bg-deep-charcoal text-gold py-3 rounded-2xl font-extrabold text-sm shadow-md hover:opacity-95 transition-opacity">
+                    إرسال الطلب لموافقة الأدمن
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 3: تسجيل دخول الأدمن ==================== -->
+    <div id="admin-login-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-surface w-full max-w-sm rounded-3xl p-6 shadow-2xl text-center">
+            <div class="w-14 h-14 rounded-2xl bg-deep-charcoal text-gold flex items-center justify-center mx-auto mb-3 shadow-md">
+                <span class="material-symbols-outlined text-3xl">shield_person</span>
+            </div>
+            <h3 class="font-extrabold text-lg text-deep-charcoal mb-1">دخول مشرف صلخد الذكي</h3>
+            <p class="text-xs text-slate-500 mb-4">أدخل رمز المرور الخاص بالأدمن لمعاينة الطلبات المعلقة والموافقة عليها (للتجربة استخدم الرمز: <strong>1234</strong>)</p>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-3">
+                <input id="admin-pin-input" type="password" inputmode="numeric" placeholder="أدخل رمز الأدمن (1234)" class="w-full text-center tracking-widest font-bold text-base rounded-2xl border-slate-300 py-3 focus:ring-gold focus:border-gold"/>
+                <div class="flex gap-2">
+                    <button type="submit" class="flex-1 bg-deep-charcoal text-gold py-2.5 rounded-xl font-bold text-xs">دخول للوحة التحكم</button>
+                    <button type="button" onclick="closeAdminLoginModal()" class="px-4 py-2.5 rounded-xl bg-slate-100 text-slate-600 font-bold text-xs">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 4: نافذة الطوارئ السريعة ==================== -->
+    <div id="emergency-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-surface w-full max-w-sm rounded-3xl p-5 shadow-2xl border-2 border-error">
+            <div class="flex justify-between items-center mb-3 pb-2 border-b border-red-100">
+                <div class="flex items-center gap-2 text-error">
+                    <span class="material-symbols-outlined">emergency</span>
+                    <h3 class="font-extrabold text-base">نداء طوارئ صلخد السريع</h3>
+                </div>
+                <button onclick="closeEmergencyModal()" class="text-slate-400 hover:text-slate-700">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <p class="text-xs text-slate-600 mb-3">اضغط على أي جهة لنسخ الرقم أو الاتصال المباشر:</p>
+            <div id="modal-emergency-list" class="space-y-2 mb-4 max-h-64 overflow-y-auto"></div>
+            <button onclick="closeEmergencyModal(); openSubmitModal('initiatives');" class="w-full bg-error text-white py-2.5 rounded-xl text-xs font-bold">
+                إرسال نداء استغاثة دوائية أو زمرة دم عاجلة
+            </button>
+        </div>
+    </div>
+
+    <!-- شريط التنقل السفلي (BottomNavBar) -->
+    <nav class="bg-deep-charcoal fixed bottom-0 w-full z-40 rounded-t-2xl shadow-[0px_-8px_30px_rgba(30,39,44,0.18)] h-20 px-4 pb-2 flex flex-row-reverse justify-around items-center">
+        <a href="#view-home" onclick="switchTab('home', this); return false;" class="nav-btn flex flex-col items-center justify-center bg-white/10 text-gold rounded-xl px-4 py-1.5 active:scale-90 transition-all duration-200">
+            <span class="material-symbols-outlined nav-icon" style="font-variation-settings: 'FILL' 1;">home</span>
+            <span class="font-label-sm text-label-sm">الرئيسية</span>
+        </a>
+        <a href="#view-notifications" onclick="switchTab('notifications', this); return false;" class="nav-btn flex flex-col items-center justify-center text-white/60 hover:text-white active:scale-90 transition-all duration-200">
+            <div class="relative">
+                <span class="material-symbols-outlined nav-icon">notifications</span>
+                <span id="nav-notif-dot" class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-error rounded-full border border-deep-charcoal"></span>
+            </div>
+            <span class="font-label-sm text-label-sm">التنبيهات</span>
+        </a>
+        <a href="#view-profile" onclick="switchTab('profile', this); return false;" class="nav-btn flex flex-col items-center justify-center text-white/60 hover:text-white active:scale-90 transition-all duration-200 relative">
+            <div class="relative">
+                <span class="material-symbols-outlined nav-icon">person</span>
+                <span id="nav-admin-badge" class="hidden absolute -top-1.5 -left-2 bg-amber-400 text-deep-charcoal text-[10px] font-extrabold px-1.5 rounded-full">0</span>
+            </div>
+            <span class="font-label-sm text-label-sm">حسابي</span>
+        </a>
+        <a href="#view-offline" onclick="switchTab('offline', this); return false;" class="nav-btn flex flex-col items-center justify-center text-white/60 hover:text-white active:scale-90 transition-all duration-200">
+            <span class="material-symbols-outlined nav-icon">flash_on</span>
+            <span class="font-label-sm text-label-sm">بدون اتصال</span>
+        </a>
+    </nav>
+
+    <script>
+        // ==================== 1. قاعدة البيانات المحلية المحاكية (تخزن في localStorage) ====================
+        const DEFAULT_ITEMS = [
+            // دليل المحلات والخدمات
+            {
+                id: 'item-1',
+                category: 'directory',
+                tag: 'صيدلية',
+                title: 'صيدلية الشفاء - مناوبة اليوم',
+                location: 'صلخد - ساحة القلعة',
+                phone: '016-752110',
+                desc: 'مناوبة على مدار 24 ساعة اليوم، تتوفر أدوية الأمراض المزمنة وحليب الأطفال.',
+                status: 'approved',
+                author: 'إدارة التطبيق',
+                createdAt: 'اليوم'
+            },
+            {
+                id: 'item-2',
+                category: 'directory',
+                tag: 'صيدلية',
+                title: 'صيدلية الجبل',
+                location: 'صلخد - الشارع الرئيسي شرقي القلعة',
+                phone: '016-752340',
+                desc: 'دوام يومي من 9 صباحاً حتى 9 مساءً، تركيبات طبية ومستلزمات إسعافية.',
+                status: 'approved',
+                author: 'إدارة التطبيق',
+                createdAt: 'منذ يومين'
+            },
+            {
+                id: 'item-3',
+                category: 'directory',
+                tag: 'طبيب / عيادة',
+                title: 'عيادة الدكتور سامر الشوفي - داخلية وقلبية',
+                location: 'صلخد - مقابل المركز الثقافي',
+                phone: '0944112233',
+                desc: 'تخطيط قلب وإيكو، استقبال المرضى يومياً من الساعة 10 صباحاً حتى 3 ظهراً.',
+                status: 'approved',
+                author: 'إدارة التطبيق',
+                createdAt: 'منذ 3 أيام'
+            },
+            {
+                id: 'item-4',
+                category: 'directory',
+                tag: 'طبيب / عيادة',
+                title: 'عيادة الدكتورة ريم الأطرش - طب أطفال',
+                location: 'صلخد - الحي الغربي',
+                phone: '0933556677',
+                desc: 'متابعة حديثي الولادة واللقاحات، الدوام من السبت إلى الخميس.',
+                status: 'approved',
+                author: 'إدارة التطبيق',
+                createdAt: 'منذ أسبوع'
+            },
+            {
+                id: 'item-5',
+                category: 'directory',
+                tag: 'محل تجاري / مهنة',
+                title: 'ورشة النور للطاقة الشمسية والإنفرترات',
+                location: 'صلخد - طريق الكراج',
+                phone: '0988776655',
+                desc: 'تركيب وصيانة منظومات الطاقة الشمسية والبطاريات المنزلية مع كفالة صيانة.',
+                status: 'approved',
+                author: 'إدارة التطبيق',
+                createdAt: 'منذ أسبوع'
+            },
+            // الوظائف والتعليم والإعلانات
+            {
+                id: 'item-6',
+                category: 'jobs',
+                tag: 'تعليم ودورات',
+                title: 'جلسات تقوية بمادة الرياضيات (عاشر وحادي عشر)',
+                location: 'صلخد - جانب الثانوية العامة',
+                phone: '0991234567',
+                desc: 'شرح مبسط للمنهاج مع أوراق عمل وحل نماذج امتحانية بإشراف مدرس مختص.',
+                status: 'approved',
+                author: 'المستخدم (أستاذ رياضيات)',
+                createdAt: 'اليوم'
+            },
+            {
+                id: 'item-7',
+                category: 'jobs',
+                tag: 'تعليم ودورات',
+                title: 'مجموعة دعم طلاب الجامعة الافتراضية السورية (SVU)',
+                location: 'صلخد - مبادرة طلابية',
+                phone: '0997654321',
+                desc: 'تجمع طلاب هندسة المعلوماتية وتقانة المعلومات في صلخد لتبادل المحاضرات والوظائف وتوفير مكان دراسة مزود بكهرباء وإنترنت.',
+                status: 'approved',
+                author: 'المستخدم',
+                createdAt: 'أمس'
+            },
+            {
+                id: 'item-8',
+                category: 'jobs',
+                tag: 'فرصة عمل',
+                title: 'مطلوب محاسب لمؤسسة مواد غذائية في صلخد',
+                location: 'صلخد - السوق التجاري',
+                phone: '0944998877',
+                desc: 'دوام كامل من 9 صباحاً حتى 4 عصراً، يفضل إجادة العمل على برامج المحاسبة.',
+                status: 'approved',
+                author: 'مؤسسة الجبل',
+                createdAt: 'منذ يومين'
+            },
+            // المبادرات الدوائية والتكافل
+            {
+                id: 'item-9',
+                category: 'initiatives',
+                tag: 'دواء متوفر / مطلوب',
+                title: 'مبادرة جرعة أمل: توفر أنسولين وأدوية ضغط مجاناً',
+                location: 'صلخد - بالتنسيق مع صيدلية الشفاء',
+                phone: '0933111222',
+                desc: 'تتوفر عبوات أنسولين محفوطة بشكل نظامي وأدوية ضغط للمرضى غير المقتدرين.',
+                status: 'approved',
+                author: 'فريق جرعة أمل التطوعي',
+                createdAt: 'اليوم'
+            },
+            {
+                id: 'item-10',
+                category: 'initiatives',
+                tag: 'دواء متوفر / مطلوب',
+                title: 'بنك الدم الأهلي في صلخد - فصيلة O- و A+',
+                location: 'مشفى صلخد الوطني',
+                phone: '016-751000',
+                desc: 'قائمة متبرعين جاهزين على مدار الساعة للحالات الإسعافية والعمليات الجراحية.',
+                status: 'approved',
+                author: 'لجنة التكافل',
+                createdAt: 'منذ 3 أيام'
+            },
+            // طلبات معلقة جاهزة ليجرب المستخدم الموافقة عليها كأدمن
+            {
+                id: 'item-11',
+                category: 'directory',
+                tag: 'محل تجاري / مهنة',
+                title: 'مكتبة وقرطاسية الأمل لطباعة الأبحاث الجامعية',
+                location: 'صلخد - قرب البريد',
+                phone: '0955443322',
+                desc: 'طباعة ليزرية ملونة، سحب محاضرات الجامعة الافتراضية، وخدمات الإنترنت السريع.',
+                status: 'pending',
+                author: 'أبو كريم (مواطن)',
+                createdAt: 'منذ 25 دقيقة'
+            },
+            {
+                id: 'item-12',
+                category: 'initiatives',
+                tag: 'دواء متوفر / مطلوب',
+                title: 'متوفر جهاز رذاذ أطفال للإعارة المجانية',
+                location: 'صلخد - الحي الشمالي',
+                phone: '0966554433',
+                desc: 'جهاز رذاذ بحالة ممتازة متاح للإعارة لأي عائلة بحاجته لحالات الربو والتهاب القصبات.',
+                status: 'pending',
+                author: 'أمجاد (مواطن)',
+                createdAt: 'منذ 10 دقائق'
+            },
+            // عناصر المواصلات، التكاسي، السرافيس، والدليفري
+            {
+                id: 'item-13',
+                category: 'transport',
+                tag: 'سرافيس وباصات',
+                title: 'خط سرافيس صلخد - السويداء (كراج صلخد)',
+                location: 'كراج الانطلاق الرئيسي',
+                phone: '016-751444',
+                desc: 'الانطلاق كل 30 دقيقة من الساعة 6:30 صباحاً حتى 5:00 مساءً، وباص النقل الداخلي الساعة 7:30 ص و1:30 ظهراً.',
+                status: 'approved',
+                author: 'إدارة الكراج / المشرف',
+                createdAt: 'محدث اليوم'
+            },
+            {
+                id: 'item-14',
+                category: 'transport',
+                tag: 'تكسي وتوصيل',
+                title: 'مكتب تكسي القلعة - طلبات ومناوبة 24 ساعة',
+                location: 'صلخد - ساحة القلعة',
+                phone: '0944556600',
+                desc: 'سيارات جاهزة للطلبات داخل مدينة صلخد والقرى المجاورة وسفرات دمشق والمطار على مدار الساعة.',
+                status: 'approved',
+                author: 'إدارة التطبيق',
+                createdAt: 'محدث اليوم'
+            },
+            {
+                id: 'item-15',
+                category: 'transport',
+                tag: 'دليفري طلبات',
+                title: 'دليفري السريع - توصيل طلبات للمنازل في صلخد',
+                location: 'كافة أحياء صلخد (الشرقي، الغربي، الشمالي)',
+                phone: '0998877112',
+                desc: 'توصيل أدوية من الصيدليات، خبز، خضار، ومواد غذائية أو وجبات سريعة لباب المنزل خلال 20 دقيقة.',
+                status: 'approved',
+                author: 'خدمة التوصيل',
+                createdAt: 'اليوم'
+            },
+            {
+                id: 'item-16',
+                category: 'transport',
+                tag: 'نقل طلاب وموظفين',
+                title: 'بولمان وميكروباص نقل طلاب الجامعات (صلخد - دمشق - السويداء)',
+                location: 'صلخد - دوار المئذنة',
+                phone: '0933445599',
+                desc: 'رحلات يومية وأسبوعية مخصصة لطلاب الجامعات والجامعة الافتراضية للمراكز الامتحانية بحجز مسبق.',
+                status: 'approved',
+                author: 'إدارة التطبيق',
+                createdAt: 'منذ يومين'
+            }
+        ];
+
+        const DEFAULT_EMERGENCY = [
+            {
+                id: 'emg-1',
+                title: 'مشفى صلخد الوطني',
+                subtitle: 'قسم الإسعاف والطوارئ 24/7',
+                phone: '016-751000',
+                icon: 'local_hospital',
+                highlight: true
+            },
+            {
+                id: 'emg-2',
+                title: 'فوج إطفاء صلخد / الدفاع المدني',
+                subtitle: 'طوارئ الحرائق والإنقاذ',
+                phone: '113',
+                icon: 'fire_truck',
+                highlight: false
+            },
+            {
+                id: 'emg-3',
+                title: 'الهلال الأحمر العربي السوري - فرع صلخد',
+                subtitle: 'إسعاف الحالات الحرجة والنقل الطبي',
+                phone: '133',
+                icon: 'medical_services',
+                highlight: false
+            },
+            {
+                id: 'emg-4',
+                title: 'طوارئ الكهرباء والمياه - صلخد',
+                subtitle: 'الإبلاغ عن الأعطال العامة والشبكة',
+                phone: '117',
+                icon: 'bolt',
+                highlight: false
+            }
+        ];
+
+        const DEFAULT_PULSE = {
+            pharmacy: 'صيدلية الشفاء',
+            pharmacyLoc: 'ساحة القلعة',
+            transport: 'السرافيس والتكاسي',
+            transportSub: 'متوفر + خدمة توصيل',
+            water: 'الحي الشرقي',
+            waterSub: 'اليوم 4:00 عصراً'
+        };
+
+        const DEFAULT_NOTIFICATIONS = [
+            {
+                id: 'notif-1',
+                type: 'emergency',
+                title: 'تنبيه طوارئ وجو',
+                time: 'منذ 10 دقائق',
+                body: 'تنويه جوي: ضباب كثيف على طريق صلخد - السويداء، يُرجى توخي الحذر أثناء القيادة في الطرقات الجبلية.',
+                read: false
+            },
+            {
+                id: 'notif-2',
+                type: 'service',
+                title: 'إشعار خدمي - الصيدليات والمياه',
+                time: 'اليوم',
+                body: 'تم تحديث جدول الصيدليات المناوبة ومواعيد ضخ المياه للحي الشرقي والغربي في شريط نبض المدينة.',
+                read: false
+            }
+        ];
+
+        let appItems = [];
+        let appNotifications = [];
+        let appEmergencyContacts = [];
+        let appCityPulse = {};
+        let devicePushEnabled = false;
+        let isAdminLoggedIn = false;
+        let currentModalSection = 'directory';
+        let currentModalFilter = 'الكل';
+        let currentAdminSubTab = 'pending';
+
+        function safeStorageGet(key, fallback) {
+            try {
+                const raw = localStorage.getItem(key);
+                return raw ? JSON.parse(raw) : fallback;
+            } catch (e) {
+                return fallback;
+            }
+        }
+
+        function safeStorageSet(key, val) {
+            try {
+                localStorage.setItem(key, JSON.stringify(val));
+            } catch (e) {}
+        }
+
+        function initAppData() {
+            appItems = safeStorageGet('salkhad_items_v3', DEFAULT_ITEMS);
+            appNotifications = safeStorageGet('salkhad_notifs_v3', DEFAULT_NOTIFICATIONS);
+            appEmergencyContacts = safeStorageGet('salkhad_emergency_v3', DEFAULT_EMERGENCY);
+            appCityPulse = safeStorageGet('salkhad_pulse_v3', DEFAULT_PULSE);
+            devicePushEnabled = safeStorageGet('salkhad_push_enabled', true);
+            updatePushToggleUI();
+            updateAllCountersAndViews();
+        }
+
+        // ==================== 2. التنقل بين الواجهات الأربع ====================
+        function switchTab(tabId, element) {
+            document.querySelectorAll('.view-section').forEach(view => view.classList.remove('active'));
+            const targetView = document.getElementById('view-' + tabId);
+            if (targetView) targetView.classList.add('active');
+
+            const headerTitle = document.getElementById('header-title');
+            if (tabId === 'home') headerTitle.innerText = 'صلخد الذكي';
+            else if (tabId === 'notifications') {
+                headerTitle.innerText = 'التنبيهات';
+                // إخفاء النقطة الحمراء تلقائياً بمجرد فتح المستخدم لخانة التنبيهات
+                if (appNotifications.some(n => !n.read)) {
+                    appNotifications = appNotifications.map(n => ({ ...n, read: true }));
+                    safeStorageSet('salkhad_notifs_v3', appNotifications);
+                    renderNotifications();
+                }
+            }
+            else if (tabId === 'profile') headerTitle.innerText = isAdminLoggedIn ? 'لوحة المشرف' : 'حسابي';
+            else if (tabId === 'offline') headerTitle.innerText = 'بدون اتصال';
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-white/10', 'text-gold', 'rounded-xl', 'px-4', 'py-1.5');
+                btn.classList.add('text-white/60');
+                const icon = btn.querySelector('.nav-icon');
+                if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+            });
+
+            if (element) {
+                element.classList.remove('text-white/60');
+                element.classList.add('bg-white/10', 'text-gold', 'rounded-xl', 'px-4', 'py-1.5');
+                const icon = element.querySelector('.nav-icon');
+                if (icon) icon.style.fontVariationSettings = "'FILL' 1";
+            }
+        }
+
+        // ==================== 3. الإشعارات المنبثقة (Toast) بدل alert ====================
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const bgClass = type === 'error' ? 'bg-error text-white' : (type === 'warning' ? 'bg-amber-600 text-white' : 'bg-deep-charcoal text-gold border border-gold/50');
+            toast.className = `${bgClass} px-4 py-3 rounded-2xl shadow-xl text-xs font-bold flex items-center justify-between gap-2 pointer-events-auto transition-all duration-300`;
+            toast.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">${type === 'error' ? 'error' : 'check_circle'}</span>
+                    <span>${message}</span>
+                </div>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3200);
+        }
+
+        function copyPhoneNumber(phone, label) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(phone).catch(() => {});
+            } else {
+                const temp = document.createElement('input');
+                temp.value = phone;
+                document.body.appendChild(temp);
+                temp.select();
+                document.execCommand('copy');
+                temp.remove();
+            }
+            showToast(`تم نسخ رقم ${label}: ${phone}`);
+        }
+
+        // ==================== 4. تحديث العدادات، القوائم، ولوحة الأدمن ====================
+        // نظام إشعارات الأجهزة الحقيقي للرابط النظامي (Web Notification API + نغمة تنبيه + شريط إشعار علوي)
+        function playNotificationChime() {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const ctx = new AudioCtx();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+                osc.frequency.setValueAtTime(880, ctx.currentTime + 0.12); // A5
+                gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.45);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.45);
+            } catch (e) {}
+        }
+
+        function triggerDevicePushNotification(title, body, isEmergency = false) {
+            const newNotif = {
+                id: 'notif-' + Date.now(),
+                type: isEmergency ? 'emergency' : 'service',
+                title,
+                time: 'الآن',
+                body,
+                read: false
+            };
+            appNotifications.unshift(newNotif);
+            safeStorageSet('salkhad_notifs_v3', appNotifications);
+            renderNotifications();
+
+            if (devicePushEnabled) {
+                playNotificationChime();
+                // إرسال إشعار نظام أصلي على الهاتف / المتصفح إذا كان الرابط يعمل على الويب ومسموحاً
+                try {
+                    if ('Notification' in window && Notification.permission === 'granted') {
+                        new Notification('صلخد الذكي: ' + title, { body });
+                    }
+                } catch (e) {}
+                showToast(`🔔 إشعار جهاز: ${title} — ${body}`, isEmergency ? 'error' : 'success');
+            }
+        }
+
+        function toggleDevicePushNotifications() {
+            if (!devicePushEnabled) {
+                devicePushEnabled = true;
+                safeStorageSet('salkhad_push_enabled', true);
+                try {
+                    if ('Notification' in window && Notification.permission === 'default') {
+                        Notification.requestPermission().catch(() => {});
+                    }
+                } catch (e) {}
+                updatePushToggleUI();
+                triggerDevicePushNotification('تم تفعيل إشعارات الجهاز', 'ستصلك الآن تنبيهات فورية بكل الإضافات وتحديثات المواصلات والطوارئ.');
+            } else {
+                devicePushEnabled = false;
+                safeStorageSet('salkhad_push_enabled', false);
+                updatePushToggleUI();
+                showToast('تم إيقاف الرنين التلقائي لإشعارات الجهاز', 'warning');
+            }
+        }
+
+        function updatePushToggleUI() {
+            const btn = document.getElementById('push-toggle-btn');
+            const txt = document.getElementById('push-status-text');
+            if (!btn || !txt) return;
+            if (devicePushEnabled) {
+                btn.innerText = 'مفعّل ✓';
+                btn.className = 'shrink-0 bg-emerald-700 text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-sm';
+                txt.innerText = 'الإشعارات الفورية نشطة على جهازك وتنبهك بكل إضافة أو تحديث جديد';
+            } else {
+                btn.innerText = 'تفعيل الآن';
+                btn.className = 'shrink-0 bg-deep-charcoal text-gold px-3.5 py-2 rounded-xl text-xs font-bold shadow-sm';
+                txt.innerText = 'فعّلها ليصلك رنين وإشعار على جهازك فور نشر أي خدمة أو تحديث مواصلات';
+            }
+        }
+
+        function updateAllCountersAndViews() {
+            const approved = appItems.filter(i => i.status === 'approved');
+            const pending = appItems.filter(i => i.status === 'pending');
+
+            const dirCount = approved.filter(i => i.category === 'directory').length;
+            const jobsCount = approved.filter(i => i.category === 'jobs').length;
+            const initCount = approved.filter(i => i.category === 'initiatives').length;
+            const transCount = approved.filter(i => i.category === 'transport').length;
+
+            document.getElementById('badge-count-directory').innerText = `${dirCount} خدمات`;
+            document.getElementById('badge-count-jobs').innerText = `${jobsCount} فرص`;
+            document.getElementById('badge-count-initiatives').innerText = `${initCount} مبادرات`;
+            const transBadge = document.getElementById('badge-count-transport');
+            if (transBadge) transBadge.innerText = `${transCount} تحديثات`;
+
+            // إحصائيات صفحة حسابي
+            document.getElementById('stat-approved-count').innerText = approved.length;
+            document.getElementById('stat-pending-count').innerText = pending.length;
+            const myCount = appItems.filter(i => i.author && i.author.includes('المستخدم')).length;
+            document.getElementById('stat-my-submissions').innerText = myCount;
+
+            // شارات التنبيه لطلبات الأدمن المعلقة
+            const gateBadge = document.getElementById('gate-pending-badge');
+            const adminPendingNum = document.getElementById('admin-pending-num');
+            const navAdminBadge = document.getElementById('nav-admin-badge');
+            const headerPendingDot = document.getElementById('header-pending-dot');
+
+            if (gateBadge) gateBadge.innerText = `${pending.length} معلق`;
+            if (adminPendingNum) adminPendingNum.innerText = pending.length;
+
+            if (isAdminLoggedIn && pending.length > 0) {
+                navAdminBadge.innerText = pending.length;
+                navAdminBadge.classList.remove('hidden');
+                headerPendingDot.classList.remove('hidden');
+            } else {
+                navAdminBadge.classList.add('hidden');
+                headerPendingDot.classList.add('hidden');
+            }
+
+            renderNotifications();
+            renderUserSubmissions();
+            renderEmergencyViews();
+            renderPulseView();
+            renderAdminLists();
+        }
+
+        function renderNotifications() {
+            const list = document.getElementById('notifications-list');
+            const dot = document.getElementById('nav-notif-dot');
+            const unread = appNotifications.some(n => !n.read);
+            if (dot) dot.style.display = unread ? 'block' : 'none';
+
+            list.innerHTML = appNotifications.map(n => `
+                <div class="luxury-card border-r-4 ${n.type === 'emergency' ? 'border-error' : 'border-gold'} rounded-3xl p-4 shadow-sm">
+                    <div class="flex justify-between items-center mb-1.5">
+                        <span class="font-bold text-xs ${n.type === 'emergency' ? 'text-error' : 'text-deep-charcoal'} flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">${n.type === 'emergency' ? 'warning' : 'campaign'}</span>
+                            ${n.title}
+                        </span>
+                        <span class="text-[11px] text-outline">${n.time}</span>
+                    </div>
+                    <p class="text-on-surface-variant text-xs leading-relaxed">${n.body}</p>
+                </div>
+            `).join('');
+        }
+
+        function markAllNotificationsRead() {
+            appNotifications = appNotifications.map(n => ({ ...n, read: true }));
+            safeStorageSet('salkhad_notifs_v3', appNotifications);
+            renderNotifications();
+            showToast('تم تحديد جميع الإشعارات كمقروءة');
+        }
+
+        function renderUserSubmissions() {
+            const container = document.getElementById('user-submissions-list');
+            const myItems = appItems.filter(i => i.author && (i.author.includes('المستخدم') || i.author.includes('مواطن')));
+            if (myItems.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 text-center py-3">لم تقم بإرسال طلبات بعد. اضغط على "+ طلب جديد" لإضافة خدمة.</p>`;
+                return;
+            }
+            container.innerHTML = myItems.map(item => `
+                <div class="p-3 rounded-2xl bg-surface-container-low border border-slate-200/80 flex justify-between items-center gap-2">
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-xs font-bold text-deep-charcoal">${item.title}</span>
+                        </div>
+                        <span class="text-[11px] text-slate-500 block mt-0.5">${item.tag} • ${item.location}</span>
+                    </div>
+                    <span class="shrink-0 text-[10px] font-bold px-2.5 py-1 rounded-full ${item.status === 'approved' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+                        ${item.status === 'approved' ? '✓ منشور للعامة' : '⏳ بانتظار موافقة الأدمن'}
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        // ==================== 5. البحث الفوري الذكي (اسأل صلوحي) ====================
+        function handleSalouhiSearch(query) {
+            const box = document.getElementById('salouhi-results-box');
+            const list = document.getElementById('salouhi-results-list');
+            const countBadge = document.getElementById('salouhi-results-count');
+            const clearBtn = document.getElementById('clear-search-btn');
+
+            const clean = query.trim().toLowerCase();
+            // الكود السري الأول: كتابة كود خاص في حقل البحث يفتح نافذة دخول الأدمن مباشرة دون إظهار أي زر للعامة
+            if (clean === '#admin' || clean === '*1234#' || clean === 'ادمن صلخد') {
+                document.getElementById('salouhi-search-input').value = '';
+                box.classList.add('hidden');
+                clearBtn.classList.add('hidden');
+                openAdminLoginModal();
+                return;
+            }
+            if (!clean) {
+                box.classList.add('hidden');
+                clearBtn.classList.add('hidden');
+                return;
+            }
+            clearBtn.classList.remove('hidden');
+            box.classList.remove('hidden');
+
+            const matches = appItems.filter(item =>
+                item.status === 'approved' && (
+                    item.title.toLowerCase().includes(clean) ||
+                    item.desc.toLowerCase().includes(clean) ||
+                    item.tag.toLowerCase().includes(clean) ||
+                    item.location.toLowerCase().includes(clean)
+                )
+            );
+
+            countBadge.innerText = `${matches.length} نتيجة`;
+
+            if (matches.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-4">
+                        <p class="text-xs text-slate-500 mb-2">لم يجد "صلوحي" خدمة مطابقة لـ "${query}" حالياً.</p>
+                        <button onclick="openSubmitModal()" class="text-xs bg-deep-charcoal text-gold px-3 py-1.5 rounded-xl font-bold">+ أضف هذه الخدمة ليراها أهل صلخد</button>
+                    </div>
+                `;
+                return;
+            }
+
+            list.innerHTML = matches.map(item => `
+                <div class="p-3 rounded-2xl bg-surface-container-low hover:bg-amber-50/40 border border-slate-200/70 flex justify-between items-start gap-2 transition-colors">
+                    <div>
+                        <span class="text-[10px] bg-gold/25 text-deep-charcoal px-2 py-0.5 rounded-full font-bold">${item.tag}</span>
+                        <h4 class="font-bold text-xs text-deep-charcoal mt-1">${item.title}</h4>
+                        <p class="text-[11px] text-slate-600 mt-0.5">${item.desc}</p>
+                        <span class="text-[10px] text-slate-400 block mt-1">📍 ${item.location}</span>
+                    </div>
+                    <button onclick="copyPhoneNumber('${item.phone}', '${item.title}')" class="shrink-0 bg-deep-charcoal text-gold px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">call</span>
+                        <span>اتصال</span>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function quickSearch(term) {
+            const input = document.getElementById('salouhi-search-input');
+            input.value = term;
+            handleSalouhiSearch(term);
+        }
+
+        function clearSalouhiSearch() {
+            const input = document.getElementById('salouhi-search-input');
+            input.value = '';
+            handleSalouhiSearch('');
+        }
+
+        function triggerSalouhiButton() {
+            const input = document.getElementById('salouhi-search-input');
+            if (!input.value.trim()) {
+                quickSearch('صيدلية');
+            } else {
+                handleSalouhiSearch(input.value);
+            }
+        }
+
+        // ==================== 6. استعراض الأقسام داخل النافذة التفاعلية ====================
+        function openSectionModal(section, presetFilter = 'الكل') {
+            currentModalSection = section;
+            currentModalFilter = presetFilter;
+
+            const modal = document.getElementById('section-modal');
+            const title = document.getElementById('modal-section-title');
+            const subtitle = document.getElementById('modal-section-subtitle');
+            const icon = document.getElementById('modal-section-icon');
+            const filterBar = document.getElementById('modal-filter-bar');
+            const addBtn = document.getElementById('modal-add-btn');
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            if (section === 'history') {
+                icon.innerText = 'castle';
+                title.innerText = 'عن صلخد القلعة والتاريخ';
+                subtitle.innerText = 'حاضرة جنوبي جبل العرب وإرثها الحضاري';
+                filterBar.classList.add('hidden');
+                addBtn.classList.add('hidden');
+                renderHistoryContent();
+                return;
+            }
+
+            filterBar.classList.remove('hidden');
+            addBtn.classList.remove('hidden');
+
+            if (section === 'directory') {
+                icon.innerText = 'storefront';
+                title.innerText = 'دليل المحلات والخدمات الشامل في صلخد';
+                subtitle.innerText = 'الأطباء، الصيدليات، المطاعم، الطاقة الشمسية، والورشات';
+                renderFilterPills(['الكل', 'صيدلية', 'طبيب / عيادة', 'مخبر / أشعة / تمريض', 'طب أسنان', 'مطاعم ومأكولات', 'مواد غذائية وسوبرماركت', 'طاقة شمسية وكهربائيات', 'محل تجاري / مهنة', 'اتصالات وإنترنت ومكتبات', 'زراعة وبيطرة']);
+            } else if (section === 'transport') {
+                icon.innerText = 'local_taxi';
+                title.innerText = 'المواصلات، التكاسي، السرافيس، والدليفري';
+                subtitle.innerText = 'تحديثات خطوط النقل، التكاسي المناوبة، والتوصيل المنزلي';
+                renderFilterPills(['الكل', 'سرافيس وباصات', 'تكسي وتوصيل', 'دليفري طلبات', 'نقل طلاب وموظفين']);
+            } else if (section === 'jobs') {
+                icon.innerText = 'campaign';
+                title.innerText = 'الوظائف، التعليم، العقارات، والإعلانات';
+                subtitle.innerText = 'فرص العمل، الدورات، العقارات، والمفقودات';
+                renderFilterPills(['الكل', 'تعليم ودورات', 'فرصة عمل', 'عقارات وإيجارات', 'بيع وشراء مستعمل', 'مفقودات وموجودات']);
+            } else if (section === 'initiatives') {
+                icon.innerText = 'handshake';
+                title.innerText = 'المبادرات الدوائية والتكافل المجتمعي';
+                subtitle.innerText = 'مبادرة جرعة أمل، بنك الدم، وإعارة الأجهزة الطبية';
+                renderFilterPills(['الكل', 'دواء متوفر / مطلوب', 'تبرع بالدم / إعارة أجهزة']);
+            }
+
+            renderSectionItems();
+        }
+
+        function renderFilterPills(tags) {
+            const filterBar = document.getElementById('modal-filter-bar');
+            filterBar.innerHTML = tags.map(t => `
+                <button onclick="setModalFilter('${t}')" class="px-3 py-1 rounded-full text-xs font-bold shrink-0 transition-colors ${currentModalFilter === t ? 'bg-deep-charcoal text-gold' : 'bg-white text-slate-600 border border-slate-200'}">
+                    ${t}
+                </button>
+            `).join('');
+        }
+
+        function setModalFilter(tag) {
+            currentModalFilter = tag;
+            openSectionModal(currentModalSection, tag);
+        }
+
+        function renderSectionItems() {
+            const body = document.getElementById('modal-section-body');
+            let items = appItems.filter(i => i.status === 'approved' && i.category === currentModalSection);
+            if (currentModalFilter !== 'الكل') {
+                items = items.filter(i => i.tag === currentModalFilter);
+            }
+
+            if (items.length === 0) {
+                body.innerHTML = `
+                    <div class="text-center py-8">
+                        <span class="material-symbols-outlined text-4xl text-slate-300">inbox</span>
+                        <p class="text-xs text-slate-500 mt-2">لا توجد عناصر منشورة في هذا التصنيف حالياً.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            body.innerHTML = items.map(item => `
+                <div class="luxury-card p-4 rounded-2xl border border-slate-200/80">
+                    <div class="flex justify-between items-start gap-2 mb-1.5">
+                        <span class="text-[10px] bg-gold/25 text-deep-charcoal font-bold px-2.5 py-0.5 rounded-full">${item.tag}</span>
+                        <span class="text-[10px] text-slate-400">${item.createdAt}</span>
+                    </div>
+                    <h4 class="font-extrabold text-sm text-deep-charcoal mb-1">${item.title}</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">${item.desc}</p>
+                    <div class="flex items-center justify-between pt-2.5 border-t border-slate-100 text-xs">
+                        <span class="text-slate-500 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[15px] text-tertiary">location_on</span>
+                            ${item.location}
+                        </span>
+                        <button onclick="copyPhoneNumber('${item.phone}', '${item.title}')" class="bg-deep-charcoal text-gold px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1 active:scale-95 transition-transform">
+                            <span class="material-symbols-outlined text-[15px]">call</span>
+                            <span>${item.phone}</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderHistoryContent() {
+            const body = document.getElementById('modal-section-body');
+            body.innerHTML = `
+                <div class="luxury-gradient text-white p-5 rounded-3xl mb-3">
+                    <span class="text-[11px] bg-gold/20 text-gold px-2.5 py-0.5 rounded-full font-bold">تاريخ وحضارة</span>
+                    <h4 class="text-lg font-extrabold mt-2 mb-1">قلعة صلخد الأثرية (صرخد)</h4>
+                    <p class="text-xs text-gray-200 leading-relaxed">
+                        ترتفع مدينة صلخد حوالي 1350 متراً عن سطح البحر جنوب محافظة السويداء، وتتوسطها قلعتها الشهيرة المشيدة فوق تل بركاني مخروطي منحوت، والتي تعاقبت عليها الحضارات النبطية والرومانية والأيوبية بين عامي 1214 و1247م.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="luxury-card p-3.5 rounded-2xl">
+                        <span class="material-symbols-outlined text-tertiary text-2xl">tower_broadcast</span>
+                        <h5 class="font-bold text-xs text-deep-charcoal mt-1">مئذنة صلخد</h5>
+                        <p class="text-[11px] text-slate-500 mt-0.5">معلم بازلتي تاريخي يتوسط الساحة الرئيسية للمدينة ويعكس فن العمارة البازلتية.</p>
+                    </div>
+                    <div class="luxury-card p-3.5 rounded-2xl">
+                        <span class="material-symbols-outlined text-emerald-700 text-2xl">eco</span>
+                        <h5 class="font-bold text-xs text-deep-charcoal mt-1">الزراعة والمناخ</h5>
+                        <p class="text-[11px] text-slate-500 mt-0.5">تشتهر بكروم العنب والتفاح والتين واللوزيات وهوائها الجبلي العليل.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openPulseDetailsModal(type) {
+            if (type === 'transport') {
+                showToast('حركة باصات وسرافيس صلخد - السويداء منتظمة كل 30 دقيقة حتى 5:00 مساءً');
+            } else {
+                showToast('جدول الضخ اليوم: الحي الشرقي 4:00 عصراً | الحي الغربي غداً صباحاً');
+            }
+        }
+
+        function closeSectionModal() {
+            const modal = document.getElementById('section-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ==================== 7. إرسال خدمة جديدة من المستخدم (تدخل بحالة Pending) ====================
+        function openSubmitModal(defaultCat = 'directory') {
+            const modal = document.getElementById('submit-modal');
+            document.getElementById('sub-category').value = defaultCat;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function openSubmitModalFromSection() {
+            const cat = currentModalSection === 'history' ? 'directory' : currentModalSection;
+            closeSectionModal();
+            openSubmitModal(cat);
+        }
+
+        function closeSubmitModal() {
+            const modal = document.getElementById('submit-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleUserSubmission(event) {
+            event.preventDefault();
+            const category = document.getElementById('sub-category').value;
+            const tag = document.getElementById('sub-tag').value;
+            const title = document.getElementById('sub-title').value.trim();
+            const location = document.getElementById('sub-location').value.trim();
+            const phone = document.getElementById('sub-phone').value.trim();
+            const desc = document.getElementById('sub-desc').value.trim();
+
+            if (!title || !desc) return;
+
+            const newItem = {
+                id: 'item-' + Date.now(),
+                category,
+                tag,
+                title,
+                location,
+                phone,
+                desc,
+                status: 'pending',
+                author: 'المستخدم (مساهمة جديدة)',
+                createdAt: 'الآن'
+            };
+
+            appItems.unshift(newItem);
+            safeStorageSet('salkhad_items_v3', appItems);
+            updateAllCountersAndViews();
+
+            document.getElementById('user-submit-form').reset();
+            closeSubmitModal();
+            showToast('تم إرسال طلبك بنجاح! ينتظر الآن موافقة الأدمن ليظهر للجميع.');
+        }
+
+        // ==================== 8. البوابات السرية ونظام الأدمن ====================
+        let logoTapCount = 0;
+        let logoTapTimer = null;
+        let longPressTimer = null;
+
+        // الطريقة السرية الثانية: النقر 5 مرات متتالية على شعار القلعة في الأعلى
+        function handleSecretLogoTap() {
+            logoTapCount += 1;
+            if (logoTapTimer) clearTimeout(logoTapTimer);
+            if (logoTapCount >= 5) {
+                logoTapCount = 0;
+                openAdminLoginModal();
+                return;
+            }
+            logoTapTimer = setTimeout(() => {
+                logoTapCount = 0;
+            }, 1800);
+        }
+
+        // الطريقة السرية الثالثة: الضغط المطول لمدة ثانيتين على رقم الإصدار أسفل صفحة "حسابي"
+        function startSecretLongPress() {
+            if (longPressTimer) clearTimeout(longPressTimer);
+            longPressTimer = setTimeout(() => {
+                openAdminLoginModal();
+            }, 1500);
+        }
+
+        function cancelSecretLongPress() {
+            if (longPressTimer) {
+                clearTimeout(longPressTimer);
+                longPressTimer = null;
+            }
+        }
+
+        function openAdminLoginModal() {
+            if (isAdminLoggedIn) {
+                const profileNavBtn = document.querySelectorAll('.nav-btn')[2];
+                switchTab('profile', profileNavBtn);
+                return;
+            }
+            const modal = document.getElementById('admin-login-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => document.getElementById('admin-pin-input').focus(), 100);
+        }
+
+        function closeAdminLoginModal() {
+            const modal = document.getElementById('admin-login-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const pin = document.getElementById('admin-pin-input').value.trim();
+            if (pin === '1234') {
+                isAdminLoggedIn = true;
+                document.getElementById('admin-pin-input').value = '';
+                closeAdminLoginModal();
+                document.getElementById('admin-status-chip').classList.remove('hidden');
+                document.getElementById('admin-gate-card').classList.add('hidden');
+                document.getElementById('admin-dashboard-panel').classList.remove('hidden');
+                const profileNavBtn = document.querySelectorAll('.nav-btn')[2];
+                switchTab('profile', profileNavBtn);
+                updateAllCountersAndViews();
+                showToast('مرحباً بك في لوحة تحكم المشرف (الأدمن)');
+            } else {
+                showToast('رمز الأدمن غير صحيح! استخدم الرمز التجريبي: 1234', 'error');
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            document.getElementById('admin-status-chip').classList.add('hidden');
+            document.getElementById('admin-dashboard-panel').classList.add('hidden');
+            document.getElementById('header-title').innerText = 'حسابي';
+            updateAllCountersAndViews();
+            showToast('تم تسجيل الخروج وإخفاء لوحة المشرف');
+        }
+
+        function switchAdminSubTab(tab) {
+            currentAdminSubTab = tab;
+            const tabs = ['pending', 'transport', 'emergency', 'approved', 'broadcast'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('admin-tab-' + t);
+                const container = document.getElementById('admin-' + t + '-container');
+                if (!btn || !container) return;
+                const spanClass = t === 'broadcast' ? 'col-span-2 sm:col-span-1 ' : '';
+                if (t === tab) {
+                    btn.className = spanClass + 'py-2 px-2 rounded-xl text-[11px] font-bold bg-deep-charcoal text-gold';
+                    container.classList.remove('hidden');
+                } else {
+                    btn.className = spanClass + 'py-2 px-2 rounded-xl text-[11px] font-bold bg-slate-100 text-slate-600';
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function renderPulseView() {
+            const pName = document.getElementById('pulse-pharmacy-name');
+            const pSub = document.getElementById('pulse-pharmacy-sub');
+            const tTitle = document.getElementById('pulse-transport-title');
+            const tSub = document.getElementById('pulse-transport-sub');
+            const wTitle = document.getElementById('pulse-water-title');
+            const wSub = document.getElementById('pulse-water-sub');
+
+            if (pName) pName.innerText = appCityPulse.pharmacy || 'صيدلية الشفاء';
+            if (pSub) pSub.innerText = appCityPulse.pharmacyLoc || 'ساحة القلعة';
+            if (tTitle) tTitle.innerText = appCityPulse.transport || 'السرافيس والتكاسي';
+            if (tSub) tSub.innerText = appCityPulse.transportSub || 'متوفر + خدمة توصيل';
+            if (wTitle) wTitle.innerText = appCityPulse.water || 'الحي الشرقي';
+            if (wSub) wSub.innerText = appCityPulse.waterSub || 'اليوم 4:00 عصراً';
+
+            const ep = document.getElementById('pulse-edit-pharmacy');
+            const epl = document.getElementById('pulse-edit-pharmacy-loc');
+            const et = document.getElementById('pulse-edit-trans');
+            const ets = document.getElementById('pulse-edit-trans-sub');
+            const ew = document.getElementById('pulse-edit-water');
+            const ews = document.getElementById('pulse-edit-water-sub');
+            if (ep && !ep.value) ep.value = appCityPulse.pharmacy || '';
+            if (epl && !epl.value) epl.value = appCityPulse.pharmacyLoc || '';
+            if (et && !et.value) et.value = appCityPulse.transport || '';
+            if (ets && !ets.value) ets.value = appCityPulse.transportSub || '';
+            if (ew && !ew.value) ew.value = appCityPulse.water || '';
+            if (ews && !ews.value) ews.value = appCityPulse.waterSub || '';
+        }
+
+        function saveCityPulseAdmin() {
+            const pharmacy = document.getElementById('pulse-edit-pharmacy').value.trim() || appCityPulse.pharmacy;
+            const pharmacyLoc = document.getElementById('pulse-edit-pharmacy-loc').value.trim() || appCityPulse.pharmacyLoc;
+            const transport = document.getElementById('pulse-edit-trans').value.trim() || appCityPulse.transport;
+            const transportSub = document.getElementById('pulse-edit-trans-sub').value.trim() || appCityPulse.transportSub;
+            const water = document.getElementById('pulse-edit-water').value.trim() || appCityPulse.water;
+            const waterSub = document.getElementById('pulse-edit-water-sub').value.trim() || appCityPulse.waterSub;
+
+            appCityPulse = { pharmacy, pharmacyLoc, transport, transportSub, water, waterSub };
+            safeStorageSet('salkhad_pulse_v3', appCityPulse);
+            renderPulseView();
+            triggerDevicePushNotification(
+                'تحديث نبض صلخد اليوم',
+                `المناوبة: ${pharmacy} | المواصلات: ${transport} (${transportSub}) | المياه: ${water} (${waterSub})`
+            );
+        }
+
+        function adminAddTransportUpdate() {
+            const tag = document.getElementById('admin-trans-type').value;
+            const phone = document.getElementById('admin-trans-phone').value.trim() || 'غير محدد';
+            const title = document.getElementById('admin-trans-title').value.trim();
+            const location = document.getElementById('admin-trans-location').value.trim() || 'صلخد';
+            const desc = document.getElementById('admin-trans-desc').value.trim();
+
+            if (!title || !desc) {
+                showToast('يرجى إدخال عنوان التحديث والتفاصيل أولاً', 'error');
+                return;
+            }
+
+            const newItem = {
+                id: 'item-' + Date.now(),
+                category: 'transport',
+                tag,
+                title,
+                location,
+                phone,
+                desc,
+                status: 'approved',
+                author: 'مشرف المواصلات',
+                createdAt: 'محدث الآن'
+            };
+
+            appItems.unshift(newItem);
+            safeStorageSet('salkhad_items_v3', appItems);
+            document.getElementById('admin-trans-title').value = '';
+            document.getElementById('admin-trans-desc').value = '';
+            document.getElementById('admin-trans-phone').value = '';
+            document.getElementById('admin-trans-location').value = '';
+
+            updateAllCountersAndViews();
+            triggerDevicePushNotification(`تحديث ${tag}`, `${title} — ${desc} (${location})`);
+        }
+
+        function renderEmergencyViews() {
+            const modalList = document.getElementById('modal-emergency-list');
+            const offlineList = document.getElementById('offline-emergency-list');
+            const adminList = document.getElementById('admin-emergency-list');
+
+            if (modalList) {
+                modalList.innerHTML = appEmergencyContacts.map(c => `
+                    <button onclick="copyPhoneNumber('${c.phone}', '${c.title}')" class="w-full p-3 rounded-2xl ${c.highlight ? 'bg-red-50 hover:bg-red-100' : 'bg-slate-50 hover:bg-slate-100'} text-right flex justify-between items-center transition-colors">
+                        <div>
+                            <span class="font-bold text-xs ${c.highlight ? 'text-error' : 'text-deep-charcoal'} block">${c.title}</span>
+                            <span class="text-[10px] text-slate-500">${c.subtitle}</span>
+                        </div>
+                        <span class="font-extrabold text-sm ${c.highlight ? 'text-error' : 'text-deep-charcoal'}">${c.phone}</span>
+                    </button>
+                `).join('');
+            }
+
+            if (offlineList) {
+                offlineList.innerHTML = appEmergencyContacts.map(c => `
+                    <div class="bg-white/10 rounded-2xl p-3.5 flex justify-between items-center">
+                        <div>
+                            <span class="font-bold text-sm block text-white">${c.title}</span>
+                            <span class="text-[11px] text-gray-300">${c.subtitle}</span>
+                        </div>
+                        <button onclick="copyPhoneNumber('${c.phone}', '${c.title}')" class="bg-gold text-deep-charcoal px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[15px]">call</span>
+                            <span>${c.phone}</span>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            if (adminList) {
+                adminList.innerHTML = appEmergencyContacts.map(c => `
+                    <div class="p-3 rounded-2xl bg-surface-container-low border border-slate-200 flex justify-between items-center gap-2">
+                        <div>
+                            <h5 class="font-bold text-xs text-deep-charcoal">${c.title} <span class="text-error font-extrabold">(${c.phone})</span></h5>
+                            <span class="text-[10px] text-slate-500">${c.subtitle}</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <button onclick="editEmergencyContact('${c.id}')" class="p-1.5 rounded-xl bg-amber-100 text-amber-900 hover:bg-amber-200" title="تعديل الرقم">
+                                <span class="material-symbols-outlined text-[16px]">edit</span>
+                            </button>
+                            <button onclick="deleteEmergencyContact('${c.id}')" class="p-1.5 rounded-xl bg-red-100 text-error hover:bg-red-200" title="حذف">
+                                <span class="material-symbols-outlined text-[16px]">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function editEmergencyContact(id) {
+            const target = appEmergencyContacts.find(c => c.id === id);
+            if (!target) return;
+            document.getElementById('emg-edit-id').value = target.id;
+            document.getElementById('emg-title').value = target.title;
+            document.getElementById('emg-subtitle').value = target.subtitle;
+            document.getElementById('emg-phone').value = target.phone;
+            showToast('عدّل البيانات في الحقول ثم اضغط "حفظ رقم الطوارئ وتعميمه"');
+        }
+
+        function resetEmergencyForm() {
+            document.getElementById('emg-edit-id').value = '';
+            document.getElementById('emg-title').value = '';
+            document.getElementById('emg-subtitle').value = '';
+            document.getElementById('emg-phone').value = '';
+        }
+
+        function saveEmergencyContact() {
+            const editId = document.getElementById('emg-edit-id').value;
+            const title = document.getElementById('emg-title').value.trim();
+            const subtitle = document.getElementById('emg-subtitle').value.trim() || 'خدمة طوارئ';
+            const phone = document.getElementById('emg-phone').value.trim();
+
+            if (!title || !phone) {
+                showToast('يرجى إدخال اسم الجهة ورقم الطوارئ', 'error');
+                return;
+            }
+
+            if (editId) {
+                const target = appEmergencyContacts.find(c => c.id === editId);
+                if (target) {
+                    target.title = title;
+                    target.subtitle = subtitle;
+                    target.phone = phone;
+                }
+                triggerDevicePushNotification('تحديث رقم طوارئ في صلخد', `تم تحديث رقم ${title} إلى ${phone} (${subtitle})`, true);
+            } else {
+                appEmergencyContacts.unshift({
+                    id: 'emg-' + Date.now(),
+                    title,
+                    subtitle,
+                    phone,
+                    icon: 'emergency',
+                    highlight: true
+                });
+                triggerDevicePushNotification('إضافة رقم طوارئ جديد', `تمت إضافة ${title}: ${phone} إلى دليل الطوارئ والعمل بدون اتصال`, true);
+            }
+
+            safeStorageSet('salkhad_emergency_v3', appEmergencyContacts);
+            resetEmergencyForm();
+            updateAllCountersAndViews();
+        }
+
+        function deleteEmergencyContact(id) {
+            appEmergencyContacts = appEmergencyContacts.filter(c => c.id !== id);
+            safeStorageSet('salkhad_emergency_v3', appEmergencyContacts);
+            updateAllCountersAndViews();
+            showToast('تم حذف رقم الطوارئ', 'warning');
+        }
+
+        function renderAdminLists() {
+            const pendingContainer = document.getElementById('admin-pending-container');
+            const approvedContainer = document.getElementById('admin-approved-container');
+
+            const pending = appItems.filter(i => i.status === 'pending');
+            const approved = appItems.filter(i => i.status === 'approved');
+
+            if (pending.length === 0) {
+                pendingContainer.innerHTML = `
+                    <div class="text-center py-6 bg-surface-container-low rounded-2xl">
+                        <span class="material-symbols-outlined text-3xl text-emerald-600">task_alt</span>
+                        <p class="text-xs font-bold text-slate-700 mt-1">لا توجد طلبات معلقة حالياً</p>
+                        <p class="text-[11px] text-slate-400">جميع مساهمات الأهالي تمت مراجعتها</p>
+                    </div>
+                `;
+            } else {
+                pendingContainer.innerHTML = pending.map(item => `
+                    <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="text-[10px] bg-amber-200 text-amber-900 font-bold px-2 py-0.5 rounded-full">${item.tag}</span>
+                            <span class="text-[10px] text-slate-500">بواسطة: ${item.author} • ${item.createdAt}</span>
+                        </div>
+                        <h4 class="font-extrabold text-sm text-deep-charcoal mt-1">${item.title}</h4>
+                        <p class="text-xs text-slate-600 mt-1 mb-2">${item.desc}</p>
+                        <div class="text-[11px] text-slate-500 mb-3">📍 ${item.location} | 📞 ${item.phone}</div>
+                        <div class="flex gap-2">
+                            <button onclick="adminApproveItem('${item.id}')" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1">
+                                <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                                <span>موافقة ونشر للجميع</span>
+                            </button>
+                            <button onclick="adminDeleteItem('${item.id}')" class="px-3 bg-red-100 hover:bg-red-200 text-error py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1">
+                                <span class="material-symbols-outlined text-[16px]">delete</span>
+                                <span>رفض</span>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            approvedContainer.innerHTML = approved.map(item => `
+                <div class="p-3 rounded-2xl bg-surface-container-low border border-slate-200 flex justify-between items-center gap-2">
+                    <div>
+                        <span class="text-[10px] text-tertiary font-bold">${item.tag}</span>
+                        <h5 class="font-bold text-xs text-deep-charcoal">${item.title}</h5>
+                        <span class="text-[10px] text-slate-400">${item.location} • ${item.phone}</span>
+                    </div>
+                    <button onclick="adminDeleteItem('${item.id}')" class="text-error hover:bg-red-50 p-2 rounded-xl" title="حذف من المنصة">
+                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function adminApproveItem(itemId) {
+            const target = appItems.find(i => i.id === itemId);
+            if (!target) return;
+            target.status = 'approved';
+            target.createdAt = 'تمت الموافقة الآن';
+
+            safeStorageSet('salkhad_items_v3', appItems);
+            updateAllCountersAndViews();
+            triggerDevicePushNotification(
+                `إضافة جديدة: ${target.tag}`,
+                `تم نشر "${target.title}" (${target.location}) في تطبيق صلخد الذكي.`
+            );
+        }
+
+        function adminDeleteItem(itemId) {
+            appItems = appItems.filter(i => i.id !== itemId);
+            safeStorageSet('salkhad_items_v3', appItems);
+            updateAllCountersAndViews();
+            showToast('تم حذف العنصر من قاعدة البيانات', 'warning');
+        }
+
+        function sendAdminBroadcast() {
+            const type = document.getElementById('broadcast-type').value;
+            const title = document.getElementById('broadcast-title').value.trim();
+            const body = document.getElementById('broadcast-body').value.trim();
+            if (!title || !body) {
+                showToast('يرجى كتابة عنوان ونص التنبيه أولاً', 'error');
+                return;
+            }
+            document.getElementById('broadcast-title').value = '';
+            document.getElementById('broadcast-body').value = '';
+            triggerDevicePushNotification(title, body, type === 'emergency');
+            updateAllCountersAndViews();
+        }
+
+        // ==================== 9. نافذة الطوارئ ====================
+        function openEmergencyModal() {
+            const modal = document.getElementById('emergency-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEmergencyModal() {
+            const modal = document.getElementById('emergency-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ==================== 10. تتبع الزوار الإحصائي وتشغيل التطبيق ====================
+        (function recordAndDisplayVisits() {
+            let count = 148;
+            try {
+                count = parseInt(localStorage.getItem('salkhad_visitors_total')) || 148;
+                count += 1;
+                localStorage.setItem('salkhad_visitors_total', count);
+            } catch (e) {}
+
+            const badge = document.getElementById('visitor-count-badge');
+            if (badge) {
+                badge.innerText = count.toLocaleString('ar-EG');
+            }
+        })();
+
+        initAppData();
+    </script>
+</body>
+</html>
